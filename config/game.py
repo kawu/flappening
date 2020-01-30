@@ -1,8 +1,15 @@
-# game configuration
+#
+#
+# game configuration:
+#
 game = {
+    #
+    # window title
     'title': 'Flappy Bird',
-    # the screen [width, height]p
-    'size': (700, 500),
-    # fresh rate in fps,
-    'speed': 30,
+    #
+    # screen [width, height]
+    'size': (700, 500),  # px
+    #
+    # refresh rate,
+    'speed': 30,  # fps
 }

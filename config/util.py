@@ -1,4 +1,7 @@
-# default color set
+#
+#
+# colors:
+#
 colors = {
     'black': (0, 0, 0),
     'white': (255, 255, 255),
@@ -7,6 +10,10 @@ colors = {
     'blue': (0, 0, 255)
 }
 
+#
+#
+# events:
+#
 events = {
     'QUIT': 0,  # : {'none'}
     'ACTIVEEVENT': 1,  # : {'gain', 'state'}
@@ -14,6 +21,10 @@ events = {
     'KEYUP': 3,  # : {'key', 'mod'}
 }
 
+#
+#
+# keys:
+#
 keys = {
     'up': 273,
     'down': 274,

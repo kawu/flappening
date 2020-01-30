@@ -9,7 +9,7 @@ class Bird(Particle):
                  screen,
                  velocity: float = bird['startVelocity'],
                  maxVelocity: float = bird['maxVelocity'],
-                 lift: int = bird['lift']):
+                 lift: float = bird['lift']):
 
         super().__init__(
             screen,
@@ -18,9 +18,7 @@ class Bird(Particle):
             color=colors['red'],
         )
 
-        self.alive: bool = True
-        self.score: int = 0
-
+        self.startVelocity: float = velocity
         self.velocity: float = velocity
         self.maxVelocity: float = maxVelocity
         self.lift: float = lift
@@ -32,7 +30,7 @@ class Bird(Particle):
 
         if flapped:
             self.position[1] -= self.lift
-            self.velocity *= 0.9
+            self.velocity = self.startVelocity
 
         else:
             self.position[1] += self.velocity
