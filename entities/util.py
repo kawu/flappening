@@ -10,14 +10,14 @@ class Score(Particle):
 
         super().__init__(
             screen,
-            size=20,
+            size=24,
             position=[600, 25],
             color=colors['black'],
         )
 
         self.value = value
 
-        self.font = pygame.font.SysFont(None, self.size)
+        self.font = pygame.font.Font(None, self.size)
 
     def increase(self):
         self.value += 1
