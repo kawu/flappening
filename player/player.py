@@ -1,3 +1,5 @@
+import pygame
+
 from entities.bird import Bird
 from entities.util import Score
 
@@ -8,8 +10,35 @@ class Player():
         self.bird = Bird(screen)
         self.score = Score(screen, score)
 
-    # ABSTRACT METHOD
     def turn(self):
+
+        flapped = False
+
+        # --- Create & Post syntetic user event
+        event = pygame.event.Event(pygame.USEREVENT)
+        pygame.event.post(event)
+
+        # --- Main event loop
+        for event in pygame.event.get():
+
+            # --- Handle window close
+            if event.type == pygame.QUIT:
+                pygame.quit()
+
+            # --- Check if game is lost:
+            if (not (self.bird.inBound())):
+                return False
+
+            # --- Handle player interaction
+            flapped = self.interact(event)
+
+        self.bird.move(flapped=flapped)
+        self.score.increase()
+
+        return True
+
+    # ABSTRACT METHOD
+    def interact(self):
         pass
 
     def draw(self):

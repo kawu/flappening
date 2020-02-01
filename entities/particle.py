@@ -7,7 +7,7 @@ from config.util import colors
 class Particle:
     def __init__(self,
                  screen,
-                 size: int = 0,
+                 size: list = [0, 0],
                  position: list = [0, 0],
                  color: set = colors['black'],
                  debug: bool = False):
