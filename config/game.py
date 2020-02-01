@@ -5,7 +5,7 @@
 game = {
     #
     # window title
-    'title': 'Flappy Bird',
+    'title': 'flappening',
     #
     # screen [width, height]
     'size': (700, 500),  # px
