@@ -1,5 +1,3 @@
-import pygame
-
 from player.player import Player
 
 from config.game import game
