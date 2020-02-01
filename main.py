@@ -1,6 +1,7 @@
 import pygame
 
 from player.human import Human
+from player.machine import Machine
 
 from config.game import game
 from config.util import colors
@@ -36,8 +37,9 @@ class Game:
         # initiate & save game clock
         self.clock = pygame.time.Clock()
 
-        # initiate & save player
-        self.player = Human(self.screen, 0)
+        # initiate & save player(s)
+        self.player1 = Human(self.screen, 0)
+        self.player2 = Machine(self.screen, 0)
 
     #
     #
@@ -49,15 +51,15 @@ class Game:
 
         while gameOn:
 
-            # --- Player turn
-            if (self.player.turn() is False):
+            # --- Player turn(s)
+            if (self.player2.turn() is False):
                 gameOn = False
 
             # --- Screen-clearing
             self.screen.fill(colors['white'])
 
-            # --- Draw player
-            self.player.draw()
+            # --- Draw player(s)
+            self.player2.draw()
 
             # --- Update the screen
             pygame.display.flip()
