@@ -39,5 +39,17 @@ class Particle:
 
         return self.position
 
+    # TODO: solve this elegant:
+    def getBoxModel(self):
+
+        # p(x,y)px
+        p1 = tuple(self.position)  # top left
+        p3 = (self.position[0], self.position[1] + self.size[1])  # top right
+        p2 = (self.position[0] + self.size[0], self.position[1])  # bottom left
+        p4 = (self.position[0] + self.size[0], self.position[1] + self.size[1]
+              )  # bottom right
+
+        return [p1, p2, p3, p4]
+
     def draw(self):
         pygame.draw.rect(self.screen, self.color, (self.position, self.size))

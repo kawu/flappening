@@ -68,6 +68,7 @@ class Game:
                         flapped = True
 
             self.bird.move(flapped=flapped)
+
             self.score.increase()
 
             # --- Screen-clearing code goes here
@@ -81,6 +82,9 @@ class Game:
 
             # --- Go ahead and update the screen with what we've drawn.
             pygame.display.flip()
+
+            if (not (self.bird.inBound())):
+                exit()
 
             # --- Limit to 60 frames per second
             self.clock.tick(game['speed'])
