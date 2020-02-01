@@ -12,4 +12,5 @@ game = {
     #
     # refresh rate,
     'speed': 30,  # fps
+    'gravity': 1.35  # float [1,4]
 }
