@@ -1,7 +1,7 @@
 from player.player import Player
 
 from config.game import game
-from config.util import events
+# from config.util import events
 
 
 class Machine(Player):
@@ -14,7 +14,8 @@ class Machine(Player):
     # DUMMY:
     def interact(self, event):
 
-        if (event.type == events['USEREVENT']):
+        # event.type == events['USEREVENT']
+        if (True):
 
             y = self.bird.position[1] / game['size'][1]
 
