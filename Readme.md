@@ -1,4 +1,4 @@
-# Flappening Installing/Usage Introductions
+# Flappening
 
 ## Installation *(from source)*
 
