@@ -4,7 +4,6 @@ from player.human import Human
 from player.machine import Machine
 
 from config.game import game
-from config.util import colors
 
 
 class Game:
@@ -71,7 +70,7 @@ class Game:
                 gameOn = False
 
             # --- Screen-clearing
-            self.screen.fill(colors['white'])
+            self.screen.fill(game['color'])
 
             # --- Draw player(s)
             self.player.draw()

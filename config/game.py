@@ -1,16 +1,19 @@
+from config.util import colors
+
 #
 #
 # game configuration:
 #
 game = {
     #
-    # window title
+    # window title:
     'title': 'flappening',
     #
-    # screen [width, height]
+    # screen size[width, height], background color:
     'size': (700, 500),  # px
+    'color': colors['white'],
     #
-    # refresh rate,
+    # physics:
     'speed': 30,  # fps
     'gravity': 1.35  # float [1,4]
 }
