@@ -41,7 +41,9 @@ class Game:
         # initiate & save game clock
         self.clock = pygame.time.Clock()
 
+        #
         # --- Initiate & Save player(s)
+
         # human
         if (self.gameMode == 0):
             self.player = Human(self.screen, 0)
