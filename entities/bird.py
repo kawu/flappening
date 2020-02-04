@@ -1,7 +1,6 @@
 from entities.particle import Particle
 
 from config.bird import bird
-from config.util import colors
 from config.game import game
 
 
@@ -16,7 +15,7 @@ class Bird(Particle):
             screen,
             size=bird['size'],
             position=bird['startPosition'],
-            color=colors['red'],
+            color=bird['color'],
         )
 
         self.startVelocity: float = velocity

@@ -1,12 +1,15 @@
+from config.util import colors
+
 #
 #
 # bird configuration:
 #
 bird = {
     #
-    # size, position:
+    # size, position, color:
     'size': (30, 30),  # px
     'startPosition': [120, 160],  # px
+    'color': colors['red'],
     #
     # physics:
     'startVelocity': 5.0,
