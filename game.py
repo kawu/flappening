@@ -66,8 +66,7 @@ class Game:
         while gameOn:
 
             # --- Player turn(s)
-            if (self.player.turn() is False):
-                gameOn = False
+            gameOn = self.player.turn()
 
             # --- Screen-clearing
             self.screen.fill(game['color'])
