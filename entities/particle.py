@@ -56,6 +56,6 @@ class Particle:
         return [p1, p2, p3, p4]
 
     def draw(self):
-        # draw rect(surface[screen], color, (left[y], top[x], width, height))
+        # draw.rect(surface[screen], color, (left[y], top[x], width, height))
         # src: https://www.pygame.org/docs/ref/draw.html#pygame.draw.rect
         pygame.draw.rect(self.screen, self.color, (self.position, self.size))
