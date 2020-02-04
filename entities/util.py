@@ -15,8 +15,8 @@ class Score(Particle):
             color=colors['black'],
         )
 
-        self.value = value
-        self.increment = increment
+        self.value: int = value
+        self.increment: int = increment
 
         # font.font(typeface[string], size[px])
         # https://www.pygame.org/docs/ref/font.html#pygame.font.Font
