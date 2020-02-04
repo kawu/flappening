@@ -23,6 +23,11 @@ class Particle:
         self.position: list = position
         self.color: set = color
 
+    def draw(self):
+        # draw.rect(surface[display.obj], color[tuple], rect[left[px], top[px], width[px], height[px]])
+        # src: https://www.pygame.org/docs/ref/draw.html#pygame.draw.rect
+        pygame.draw.rect(self.screen, self.color, (self.position, self.size))
+
     def getSize(self):
 
         # debug printing
@@ -54,8 +59,3 @@ class Particle:
             print([p1, p2, p3, p4])
 
         return [p1, p2, p3, p4]
-
-    def draw(self):
-        # draw.rect(surface[screen], color, (left[y], top[x], width, height))
-        # src: https://www.pygame.org/docs/ref/draw.html#pygame.draw.rect
-        pygame.draw.rect(self.screen, self.color, (self.position, self.size))
