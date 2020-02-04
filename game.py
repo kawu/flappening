@@ -16,6 +16,7 @@ class Game:
     def __init__(self, gameMode: int = 0):
         super().__init__()
 
+        # NOTE set/save gamemode:
         # 0 : human player
         # 1 : single simple machine player
         # 2 : evolving array of machine players
