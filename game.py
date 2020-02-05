@@ -61,7 +61,7 @@ class Game:
 
         #
         # --- Initiate & Save Tube(s)/obstacles
-        self.tubes = Tubes(self.screen)
+        self.tubes = [Tubes(self.screen)]
 
     #
     #
@@ -77,13 +77,25 @@ class Game:
             gameOn = self.player.turn()
 
             # --- Tubes moving
-            self.tubes.move()
+            for tubes in self.tubes:
+                tubes.move()
+
+                # remove out of bound tubes
+                if (not tubes.inBound()):
+                    self.tubes.remove(tubes)
+
+            if (game['size'][1] - self.tubes[-1].getXCenter() >
+                    game['tubeGap']):
+                self.tubes.append(Tubes(self.screen))
 
             # --- Screen-clearing
             self.screen.fill(game['color'])
 
-            # --- Draw player(s) & tube(s)
-            self.tubes.draw()
+            # --- Draw tube(s)
+            for tubes in self.tubes:
+                tubes.draw()
+
+            # --- Draw player(s)
             self.player.draw()
 
             # --- Update the screen
