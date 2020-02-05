@@ -13,5 +13,5 @@ tubes = {
     'color': colors['blue'],
     #
     # physics:
-    'speed': 20,  # px
+    'speed': 10,  # px
 }
