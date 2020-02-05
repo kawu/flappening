@@ -1,7 +1,6 @@
 from entities.particle import Particle
 
 from config.bird import bird
-from config.game import game
 
 
 class Bird(Particle):
@@ -39,21 +38,4 @@ class Bird(Particle):
 
             # increase fall rate
             if (self.velocity < self.maxVelocity):
-                self.velocity *= game['gravity']
-
-    def inBound(self):
-
-        boxModel = super().getBoxModel()
-
-        # check border collision for each point in box model
-        for point in boxModel:
-
-            # check if x is out of bound
-            if (point[0] < 0 or point[0] > game['size'][0]):
-                return False
-
-            # check if y out of bound
-            if (point[1] < 0 or point[1] > game['size'][1]):
-                return False
-
-        return True
+                self.velocity *= bird['attraction']

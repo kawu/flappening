@@ -1,5 +1,6 @@
 import pygame
 
+from config.game import game
 from config.util import colors
 
 
@@ -59,3 +60,18 @@ class Particle:
             print([p1, p2, p3, p4])
 
         return [p1, p2, p3, p4]
+
+    def inBound(self):
+
+        # check border collision for each point in box model
+        for point in self.getBoxModel():
+
+            # check if x is out of bound
+            if (point[0] < 0 or point[0] > game['size'][0]):
+                return False
+
+            # check if y out of bound
+            if (point[1] < 0 or point[1] > game['size'][1]):
+                return False
+
+        return True
