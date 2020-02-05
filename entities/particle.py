@@ -75,3 +75,15 @@ class Particle:
                 return False
 
         return True
+
+    def collision(self, particle) -> bool:
+
+        # Rectangle/Rectangle collision
+        # src: http://www.jeffreythompson.org/collision-detection/rect-rect.php
+        if (self.position[0] + self.size[0] >= particle.position[0]
+                and self.position[0] <= particle.position[0] + particle.size[0]
+                and self.position[1] + self.size[1] >= particle.position[1] and
+                self.position[1] <= particle.position[1] + particle.size[1]):
+            return True
+
+        return False
