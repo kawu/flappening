@@ -3,6 +3,8 @@ import pygame
 from player.human import Human
 from player.machine import Machine
 
+from entities.tubes import Tubes
+
 from config.game import game
 
 
@@ -57,6 +59,10 @@ class Game:
             # TODO: evolving array of machine players
             pass
 
+        #
+        # --- Initiate & Save Tube(s)/obstacles
+        self.tubes = Tubes(self.screen)
+
     #
     #
     # -------- Game Loop -----------
@@ -73,8 +79,9 @@ class Game:
             # --- Screen-clearing
             self.screen.fill(game['color'])
 
-            # --- Draw player(s)
+            # --- Draw player(s) & tube(s)
             self.player.draw()
+            self.tubes.draw()
 
             # --- Update the screen
             pygame.display.flip()
