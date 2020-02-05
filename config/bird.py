@@ -14,5 +14,6 @@ bird = {
     # physics:
     'startVelocity': 5.0,
     'maxVelocity': 15.0,
-    'lift': 25.0
+    'lift': 25.0,
+    'attraction': 1.35,
 }
