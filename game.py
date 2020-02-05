@@ -60,7 +60,7 @@ class Game:
             pass
 
         #
-        # --- Initiate & Save Tube(s)/obstacles
+        # --- Initiate & Save Tubes'/obstacles
         self.tubes = [Tubes(self.screen)]
 
     #
@@ -73,10 +73,10 @@ class Game:
 
         while gameOn:
 
-            # --- Player turn(s)
+            # --- Player(s) turn(s)
             gameOn = self.player.turn()
 
-            # --- Tubes moving
+            # --- Tubes' moving
             for tubes in self.tubes:
                 tubes.move()
 
@@ -84,14 +84,19 @@ class Game:
                 if (not tubes.inBound()):
                     self.tubes.remove(tubes)
 
+            # --- Add new tubes if necessary
             if (game['size'][1] - self.tubes[-1].getXCenter() >
                     game['tubeGap']):
                 self.tubes.append(Tubes(self.screen))
 
+            # --- Check if first tubes collide with Player(s)
+            if (self.tubes[0].collision(self.player.bird)):
+                gameOn = False
+
             # --- Screen-clearing
             self.screen.fill(game['color'])
 
-            # --- Draw tube(s)
+            # --- Draw tubes'
             for tubes in self.tubes:
                 tubes.draw()
 
