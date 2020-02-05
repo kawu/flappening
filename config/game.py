@@ -14,6 +14,5 @@ game = {
     'color': colors['white'],
     #
     # physics:
-    'speed': 30,  # fps
-    'gravity': 1.35  # float [1,4]
+    'fps': 30
 }
