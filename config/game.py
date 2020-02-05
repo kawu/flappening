@@ -14,5 +14,6 @@ game = {
     'color': colors['white'],
     #
     # physics:
-    'fps': 30
+    'fps': 30,
+    'tubeGap': 80,
 }
