@@ -6,10 +6,11 @@ from config.util import colors
 #
 tubes = {
     #
-    # size, position, color:
+    # width, padding, gap, color:
     'width': 50,  # px
-    'gap': 30,  # px
-    'color': colors['red'],
+    'padding': 20,  # px
+    'gap': 90,  # px
+    'color': colors['blue'],
     #
     # physics:
     'speed': 20,  # px
