@@ -76,15 +76,18 @@ class Game:
             # --- Player turn(s)
             gameOn = self.player.turn()
 
+            # --- Tubes moving
+            self.tubes.move()
+
             # --- Screen-clearing
             self.screen.fill(game['color'])
 
             # --- Draw player(s) & tube(s)
-            self.player.draw()
             self.tubes.draw()
+            self.player.draw()
 
             # --- Update the screen
             pygame.display.flip()
 
-            # --- Update clock with game speed
-            self.clock.tick(game['speed'])
+            # --- Update clock with game fps
+            self.clock.tick(game['fps'])
