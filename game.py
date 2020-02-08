@@ -1,11 +1,11 @@
 import pygame
 
-from player.human import Human
-from player.machine import Machine
+from player import Human
+from player import Machine
 
-from entities.tubes import Tubes
+from entities import Tubes
 
-from config.game import game
+from config import game
 
 
 class Game:
