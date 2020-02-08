@@ -17,7 +17,7 @@ class Brain(nn.Module):
 
         # RNN
         # https://pytorch.org/docs/stable/nn.html#torch.nn.RNN
-        self.fc1 = nn.RNN(2, self.brain_size, bidirectional=False)
+        self.fc1 = nn.RNN(2, self.brain_size)
 
         # Linear
         # https://pytorch.org/docs/stable/nn.html#torch.nn.Linear
