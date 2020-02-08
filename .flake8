@@ -2,3 +2,4 @@
 ignore =
     E121,E123,E126,E226,E24,E704,W503,W504,  # defaults to ignore
     E501,  # line too long
+    F401,  # unused import; error caused in __init__
