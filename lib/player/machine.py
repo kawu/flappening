@@ -17,7 +17,7 @@ class Machine(Player):
             score,
         )
 
-        self.logger = Logger(muted=False)
+        self.logger = Logger(muted=True)
 
         self.inBirdPosition: list = []
         self.inTubesPosition: list = []
@@ -63,11 +63,6 @@ class Machine(Player):
             return True
 
         return False
-
-    #  -------- draw -----------
-    #
-    def draw(self):
-        super().draw()
 
     #  -------- isMachine -----------
     #
