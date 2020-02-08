@@ -34,3 +34,8 @@ class Human(Player):
     #
     def draw(self):
         super().draw()
+
+    #  -------- isMachine -----------
+    #
+    def isMachine(self) -> bool:
+        return False

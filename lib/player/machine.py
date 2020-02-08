@@ -17,7 +17,7 @@ class Machine(Player):
             score,
         )
 
-        self.logger = Logger(gameMode=1)
+        self.logger = Logger(muted=False)
 
         self.inBirdPosition: list = []
         self.inTubesPosition: list = []
@@ -57,7 +57,7 @@ class Machine(Player):
     #
     #  -------- Interact (dummy) -----------
     #
-    def interact(self, event) -> bool:
+    def interact(self, event=None) -> bool:
 
         if (self.inBirdPosition[1] > .4):
             return True
