@@ -12,9 +12,6 @@ class Player():
         self.bird = Bird(screen)
         self.score = Score(screen, score)
 
-        # FIMXE: bird starting position
-        self.bird.position = [120, 160]
-
     #
     #
     #  -------- Turn -----------
