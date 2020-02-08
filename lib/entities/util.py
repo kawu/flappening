@@ -15,7 +15,7 @@ class Score(Particle):
 
         super().__init__(
             screen,
-            size=24,
+            size=[24],
             position=[600, 25],
             color=colors['black'],
         )
@@ -25,7 +25,7 @@ class Score(Particle):
 
         # font.font(typeface[string], size[px])
         # https://www.pygame.org/docs/ref/font.html#pygame.font.Font
-        self.font = pygame.font.Font(None, self.size)
+        self.font = pygame.font.Font(None, self.size[0])
 
     #
     #
