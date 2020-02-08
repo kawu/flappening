@@ -110,6 +110,7 @@ class Game:
         # --- Handle window close
         if event.type == pygame.QUIT:
             pygame.quit()
+            exit()
 
         # --- Player(s) turn(s)
         for player in self.players:
