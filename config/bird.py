@@ -7,7 +7,7 @@ from config.util import colors
 bird = {
     #
     # size, position, color:
-    'size': (30, 30),  # px
+    'size': [30, 30],  # px
     'startPosition': [120, 160],  # px
     'color': colors['red'],
     #
