@@ -80,18 +80,19 @@ class Game:
             for tubes in self.tubes:
                 tubes.move()
 
+                # check tubes collide with Player(s)
+                if (tubes.collision(self.player.bird)):
+                    gameOn = False
+                    continue
+
                 # remove out of bound tubes
-                if (not tubes.inBound()):
+                if (not tubes.visible()):
                     self.tubes.remove(tubes)
 
             # --- Add new tubes if necessary
             if (game['size'][1] - self.tubes[-1].getXCenter() >
                     game['tubeGap']):
                 self.tubes.append(Tubes(self.screen))
-
-            # --- Check if first tubes collide with Player(s)
-            if (self.tubes[0].collision(self.player.bird)):
-                gameOn = False
 
             # --- Screen-clearing
             self.screen.fill(game['color'])
