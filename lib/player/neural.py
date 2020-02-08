@@ -20,7 +20,7 @@ class Neural(Machine):
     #
     #  -------- Interact -----------
     #
-    def interact(self, event) -> bool:
+    def interact(self, event=None) -> bool:
 
         if (self.brain.think(
             [self.getInBirdPosition(),
