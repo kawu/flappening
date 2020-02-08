@@ -24,7 +24,7 @@ class Tubes():
         self.speed: float = speed
 
         self.yCenter: float = self.rndYCenter()
-        self.xCenter: float = game['size'][0] - self.width
+        self.xCenter: float = game['size'][0]
 
         # TODO solve this elegant
         self.upper = Particle(self.screen,
@@ -60,9 +60,9 @@ class Tubes():
         # src: https://docs.python.org/2/library/random.html#random.randint
         return random.randint(minY, maxY)
 
-    def inBound(self) -> bool:
+    def visible(self) -> bool:
         # check if both pipes are inBound:
-        if (self.upper.inBound() or self.lower.inBound()):
+        if (self.upper.visible() or self.lower.visible()):
             return True
 
         # default False:

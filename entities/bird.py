@@ -22,10 +22,10 @@ class Bird(Particle):
         self.maxVelocity: float = maxVelocity
         self.lift: float = lift
 
-    def draw(self):
+    def draw(self) -> None:
         super().draw()
 
-    def move(self, flapped: bool = False):
+    def move(self, flapped: bool = False) -> None:
 
         if flapped:
             # lift in y position

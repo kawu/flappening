@@ -22,10 +22,10 @@ class Score(Particle):
         # https://www.pygame.org/docs/ref/font.html#pygame.font.Font
         self.font = pygame.font.Font(None, self.size)
 
-    def increase(self):
+    def increase(self) -> None:
         self.value += self.increment
 
-    def draw(self):
+    def draw(self) -> None:
 
         # font.render(text[font.obj], antialias[bool], color[tuple])
         # src: https://www.pygame.org/docs/ref/font.html#pygame.font.Font.render
@@ -35,5 +35,5 @@ class Score(Particle):
         # src: https://www.pygame.org/docs/ref/surface.html#pygame.Surface.blit
         self.screen.blit(text, self.position)
 
-    def getValue(self):
+    def getValue(self) -> int:
         return self.value

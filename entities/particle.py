@@ -24,12 +24,12 @@ class Particle:
         self.position: list = position
         self.color: set = color
 
-    def draw(self):
+    def draw(self) -> None:
         # draw.rect(surface[display.obj], color[tuple], rect[left[px], top[px], width[px], height[px]])
         # src: https://www.pygame.org/docs/ref/draw.html#pygame.draw.rect
         pygame.draw.rect(self.screen, self.color, (self.position, self.size))
 
-    def getSize(self):
+    def getSize(self) -> list:
 
         # debug printing
         if (self.debug):
@@ -37,7 +37,7 @@ class Particle:
 
         return self.size
 
-    def getPosition(self):
+    def getPosition(self) -> list:
 
         # debug printing
         if (self.debug):
@@ -46,7 +46,7 @@ class Particle:
         return self.position
 
     # TODO: solve this elegant:
-    def getBoxModel(self):
+    def getBoxModel(self) -> list:
 
         # p(x,y)px
         p1 = tuple(self.position)  # top left
@@ -61,7 +61,7 @@ class Particle:
 
         return [p1, p2, p3, p4]
 
-    def inBound(self):
+    def inBound(self) -> bool:
 
         # check border collision for each point in box model
         for point in self.getBoxModel():
@@ -75,6 +75,21 @@ class Particle:
                 return False
 
         return True
+
+    def visible(self) -> bool:
+
+        # check if each point in box model is out of bound
+        for point in self.getBoxModel():
+
+            # check if x is out of bound
+            if (not point[0] < 0 or not point[0] > game['size'][0]):
+                return True
+
+            # check if y out of bound
+            if (not point[1] < 0 or not point[1] > game['size'][1]):
+                return True
+
+        return False
 
     def collision(self, particle) -> bool:
 
