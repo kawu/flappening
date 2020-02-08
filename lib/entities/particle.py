@@ -14,7 +14,7 @@ class Particle:
                  screen,
                  size: list = [0, 0],
                  position: list = [0, 0],
-                 color: set = colors['black'],
+                 color: tuple = colors['black'],
                  debug: bool = False):
         super().__init__()
 
@@ -24,9 +24,10 @@ class Particle:
         # saves corresponding screen object
         self.screen = screen
 
-        self.size: int = size
-        self.position: list = position
-        self.color: set = color
+        # shallow copying values
+        self.size = list(size)
+        self.position = list(position)
+        self.color = tuple(color)
 
     #
     #
