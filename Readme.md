@@ -1,4 +1,4 @@
-# Flappening
+# Flappening 0.1.4
 
 ## Installation *(from source)*
 
@@ -15,10 +15,10 @@ Run game through command line:
 ```bash
 python3 main.py
 ```
-or create an custom *main.py*-file:
+or create a custom `main.py`:
 ```python
 # import the game
-from game import Game
+from lib import Game
 
 def main():
     
@@ -36,14 +36,18 @@ if __name__ == '__main__':
 ```
 
 ## Releases
-* initial commit
-* added bird object *(player character)*
-* bird in bound detection
-* added score object
+* 0.0.0: initial commit
+* 0.0.1: added bird object *(player character)*
+* 0.0.4: bird in bound detection
+* 0.0.5: added score object
+* 0.1.1: collision detection *(http://www.jeffreythompson.org/collision-detection/rect-rect.php)*
+* 0.1.4: tubes object class
+* 0.1.5: human and dummy machine player
+* 0.1.6: game recording
 
 ## Roadmap
-* collision detection *(http://www.jeffreythompson.org/collision-detection/rect-rect.php)*
-* tubes object class
-* sprites for bird, tubes, background
-* neural net *(Linear MLP)*
+* neural net *(Single Linear / Linear MLP / RNN(LSTM))*
+* statistic output
 * genetic optimization through evolution and mutation
+* sprites for bird, tubes, background
+* sounds for bird, tubes, background
