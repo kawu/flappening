@@ -14,7 +14,7 @@ class Neural(Machine):
             score,
         )
 
-        self.brain = Brain(16)
+        self.brain = Brain(3)
 
     #
     #
@@ -28,8 +28,3 @@ class Neural(Machine):
             return True
 
         return False
-
-    #  -------- draw -----------
-    #
-    def draw(self):
-        super().draw()
