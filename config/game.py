@@ -8,7 +8,7 @@ game = {
     #
     # window title:
     'title': 'flappening',
-    'version': '0.1.6',
+    'version': '0.2.0',
     'description': 'lorem ipsum',
     'url': 'https://github.com/smnmnkr/flappening',
     #
