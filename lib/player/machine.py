@@ -1,18 +1,31 @@
+from lib.logger import Logger
+
 from lib.player import Player
 
-from config import game  # , events
+from config import game
 
 
 class Machine(Player):
+
+    #
+    #
+    #  -------- Init -----------
+    #
     def __init__(self, screen, score):
         super().__init__(
             screen,
             score,
         )
 
+        self.logger = Logger(gameMode=1)
+
         self.inBirdPosition: list = []
         self.inTubesPosition: list = []
 
+    #
+    #
+    #  -------- Observe -----------
+    #
     def observe(self, tubes):
 
         self.inBirdPosition = [
@@ -26,21 +39,47 @@ class Machine(Player):
                 tube.getYCenter() / game['size'][1]
             ])
 
-    # DUMMY:
-    def interact(self, event):
+        self.log()
 
-        if (True):  # event.type == events['USEREVENT']
+    #
+    #
+    #  -------- Log -----------
+    #
+    def log(self):
+        self.logger.addSnapshot({
+            'inBirdPosition': self.inBirdPosition,
+            'inTubesPosition': self.inTubesPosition
+        })
 
-            print(self.inBirdPosition)
-            print(self.inTubesPosition)
+        self.logger.update({'score': self.score.getValue()})
 
-            if (self.inBirdPosition[1] > .4):
-                return True
+    #
+    #
+    #  -------- Interact (dummy) -----------
+    #
+    def interact(self, event) -> bool:
+
+        if (self.inBirdPosition[1] > .4):
+            return True
 
         return False
 
+    #  -------- draw -----------
+    #
     def draw(self):
         super().draw()
 
-    def isMachine(self):
+    #  -------- isMachine -----------
+    #
+    def isMachine(self) -> bool:
         return True
+
+    #  -------- getInBirdPosition -----------
+    #
+    def getInBirdPosition(self) -> list:
+        return self.inBirdPosition
+
+    #  -------- getInTubesPosition -----------
+    #
+    def getInTubesPosition(self) -> list:
+        return self.inTubesPosition
