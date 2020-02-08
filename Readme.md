@@ -1,4 +1,4 @@
-# Flappening 0.1.4
+# flappening
 
 ## Installation *(from source)*
 
