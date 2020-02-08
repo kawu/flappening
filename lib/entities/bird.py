@@ -1,4 +1,4 @@
-from entities import Particle
+from lib.entities import Particle
 
 from config import bird
 

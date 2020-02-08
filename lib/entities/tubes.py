@@ -1,9 +1,8 @@
 import random
 
-from entities import Particle
+from lib.entities import Particle
 
-from config import tubes
-from config import game
+from config import tubes, game
 
 
 class Tubes():

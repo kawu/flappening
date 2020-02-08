@@ -1,5 +1,5 @@
 # import the game
-from game import Game
+from lib import Game
 
 
 def main():

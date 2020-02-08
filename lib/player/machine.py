@@ -1,4 +1,4 @@
-from player.player import Player
+from lib.player import Player
 
 from config import game  # , events
 

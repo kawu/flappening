@@ -1,9 +1,9 @@
 import pygame
 
-from player import Human
-from player import Machine
+from lib.player import Human
+from lib.player import Machine
 
-from entities import Tubes
+from lib.entities import Tubes
 
 from config import game
 

@@ -1,7 +1,6 @@
 import pygame
 
-from config import game
-from config import colors
+from config import game, colors
 
 
 # default particle class (rectangular box):
