@@ -43,6 +43,15 @@ class Game:
         # initiate & save game clock
         self.clock = pygame.time.Clock()
 
+        # reset game
+        self.reset()
+
+    #
+    #
+    # -------- Reset -----------
+    #
+    def reset(self):
+
         #
         # --- Initiate & Save player(s)
 
@@ -57,10 +66,9 @@ class Game:
         # machine array
         elif (self.gameMode == 2):
 
-            self.players: list = []
-
-            for idx in range(self.playerCount):
-                self.players.append(Neural(self.screen, 0))
+            self.players: list = [
+                Neural(self.screen, 0) for i in range(self.playerCount)
+            ]
 
         # players garbage
         self.playersGarbage: list = []
@@ -127,7 +135,9 @@ class Game:
             for player in self.players:
                 if (tubes.collision(player.bird) or not player.bird.inBound()):
 
-                    player.logger.write()
+                    if (hasattr(player, 'logger')):
+                        player.logger.write()
+
                     self.players.remove(player)
                     self.playersGarbage.append(player)
 
