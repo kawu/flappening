@@ -13,7 +13,9 @@ pip3 install -r requirements.txt
 ## Getting Started
 Run game through command line:
 ```bash
-# gameMode options are 0 : playing, 1 : training
+# gameMode options: 
+# 0 : playing human, 
+# 1 : training neural machine
 python3 main.py gameMode
 ```
 or create a custom `main.py`:
@@ -27,7 +29,7 @@ def main():
     # gameMode = 0 : human player
     # gameMode = 1 : single simple machine player
     # gameMode = 2 : multply neural machine players
-    myGame = Game(gameMode=1)
+    myGame = Game(gameMode=2)
 
     # run the game
     myGame.run()
@@ -49,8 +51,8 @@ if __name__ == '__main__':
 * 0.2.0: tests, argparse includes
 
 ## Roadmap
-* enhance neural net *(Single Linear / Linear MLP / RNN(LSTM))*
-* integrate statistic output (matplotlib)
-* genetic optimization through evolution and mutation
+* optimization through evolution and mutation
+* reworking logging
+* integrate statistic output
 * -- sprites for bird, tubes, background
 * -- sounds for bird, tubes, background
