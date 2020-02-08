@@ -1,18 +1,24 @@
-# import the game
-from lib import Game
+import argparse
 
+from tests import test__training, test__playing
 
-def main():
-
-    # create new Game Object
-    # gameMode = 0 : human player
-    # gameMode = 1 : single simple machine player
-    myGame = Game(gameMode=1)
-
-    # run the game
-    myGame.run()
-
+parser = argparse.ArgumentParser(description='play or train flappening')
+parser.add_argument('gameMode',
+                    metavar='gameMode',
+                    help='choose the gameMode. 0 : playing, 1 : training',
+                    type=int,
+                    nargs='?',
+                    const=0)
 
 # run iff file is main
 if __name__ == '__main__':
-    main()
+    args = parser.parse_args()
+
+    if (args.gameMode == 0):
+        test__playing()
+
+    elif (args.gameMode == 1):
+        test__training()
+
+    else:
+        test__playing()
