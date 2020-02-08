@@ -45,8 +45,3 @@ class Bird(Particle):
             # increase fall rate
             if (self.velocity < self.maxVelocity):
                 self.velocity *= bird['attraction']
-
-    #  -------- draw -----------
-    #
-    def draw(self) -> None:
-        super().draw()
