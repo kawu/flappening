@@ -16,6 +16,6 @@ def training(game, epochs: int = 10):
             else:
                 freq[item] = 1
 
-        print(freq)
+        print('Scores for epoch: \t' + str(n) + ' : ' + str(freq))
 
         game.reset()
