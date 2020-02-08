@@ -13,13 +13,15 @@ class Game:
     #
     #  -------- Init -----------
     #
-    def __init__(self, gameMode: int = 0):
+    def __init__(self, gameMode: int = 0, playerCount: int = 1):
         super().__init__()
 
         # 0 : human player
         # 1 : single simple machine player
         # 2 : evolving array of machine players
         self.gameMode = gameMode
+
+        self.playerCount = playerCount
 
         self.setup()
 
@@ -54,8 +56,14 @@ class Game:
 
         # machine array
         elif (self.gameMode == 2):
-            # TODO: evolving array of machine players
-            self.players: list = [Neural(self.screen, 0)]
+
+            self.players: list = []
+
+            for idx in range(self.playerCount):
+                self.players.append(Neural(self.screen, 0))
+
+        # players garbage
+        self.playersGarbage: list = []
 
         #
         # --- Initiate & Save Tubes'/obstacles
@@ -71,50 +79,96 @@ class Game:
 
         while gameOn:
 
-            # --- Player(s) turn(s)
+            if (len(self.players) == 0):
+                gameOn = False
+
+            # --- Create & Post syntetic user event (for fair machine interaction)
+            event = pygame.event.Event(pygame.USEREVENT)
+            pygame.event.post(event)
+
+            # --- Main event loop
+            for event in pygame.event.get():
+                self.handleUserInteraction(event)
+
+            self.handleInGameInteraction()
+            self.updateScreen()
+
+    #
+    #
+    # -------- handleUserInteraction -----------
+    #
+    def handleUserInteraction(self, event):
+
+        # --- Handle window close
+        if event.type == pygame.QUIT:
+            pygame.quit()
+
+        # --- Player(s) turn(s)
+        for player in self.players:
+
+            # machine observes game
+            if (player.isMachine()):
+                player.observe(self.tubes)
+
+            # player takes action
+            player.turn(event)
+
+    #
+    #
+    # -------- handleInGameInteraction -----------
+    #
+    def handleInGameInteraction(self):
+
+        # --- Tubes' moving
+        for tubes in self.tubes:
+            tubes.move()
+
+            # check tubes collide with Player(s)
             for player in self.players:
+                if (tubes.collision(player.bird) or not player.bird.inBound()):
 
-                # machine observes game
-                if (player.isMachine()):
-                    player.observe(self.tubes)
+                    player.logger.write()
+                    self.players.remove(player)
+                    self.playersGarbage.append(player)
 
-                # player takes action
-                player.turn()
+            # remove not visible tubes
+            if (not tubes.visible()):
+                self.tubes.remove(tubes)
 
-            # --- Tubes' moving
-            for tubes in self.tubes:
-                tubes.move()
+        # --- Add new tubes if necessary
+        tubleWallDistance = game['size'][1] - self.tubes[-1].getXCenter()
 
-                # check tubes collide with Player(s)
-                for player in self.players:
-                    if (tubes.collision(player.bird)
-                            or not player.bird.inBound()):
-                        gameOn = False
-                        continue
+        if (tubleWallDistance > game['tubeGap']):
+            self.tubes.append(Tubes(self.screen))
 
-                # remove not visible tubes
-                if (not tubes.visible()):
-                    self.tubes.remove(tubes)
+    #
+    #
+    # -------- updateScreen -----------
+    #
+    def updateScreen(self):
+        # --- Screen-clearing
+        self.screen.fill(game['color'])
 
-            # --- Add new tubes if necessary
-            tubleWallDistance = game['size'][1] - self.tubes[-1].getXCenter()
+        # --- Draw tubes'
+        for tubes in self.tubes:
+            tubes.draw()
 
-            if (tubleWallDistance > game['tubeGap']):
-                self.tubes.append(Tubes(self.screen))
+        # --- Draw player(s)
+        for player in self.players:
+            player.draw()
 
-            # --- Screen-clearing
-            self.screen.fill(game['color'])
+        # --- Update the screen
+        pygame.display.flip()
 
-            # --- Draw tubes'
-            for tubes in self.tubes:
-                tubes.draw()
+        # --- Update clock with game fps
+        self.clock.tick(game['fps'])
 
-            # --- Draw player(s)
-            for player in self.players:
-                player.draw()
+    # -------- getPlayer -----------
+    #
+    def getPlayers(self):
+        return self.players
 
-            # --- Update the screen
-            pygame.display.flip()
-
-            # --- Update clock with game fps
-            self.clock.tick(game['fps'])
+    # -------- getPlayersGarbage -----------
+    #
+    def getPlayersGarbage(self):
+        return self.playersGarbage
