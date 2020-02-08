@@ -11,23 +11,29 @@ class Logger:
     #
     #  -------- Init -----------
     #
-    def __init__(self, gameMode):
+    def __init__(self, muted=False):
         super().__init__()
 
-        self.data: dict = {'gameMode': gameMode, 'snapshots': [], 'score': 0}
+        self.data: dict = {'snapshots': [], 'score': 0}
 
         self.outpath = logging['record_path']
+
+        self.muted = muted
 
     #  -------- Destruct -----------
     #
     def __del__(self):
-        self.write()
+        pass
+        # self.write()
 
     #
     #
     #  -------- Write -----------
     #
     def write(self):
+
+        if (self.muted):
+            return
 
         fileName: str = str(self.data['score']) + '--' +  \
             str(datetime.now()) + '.pkl'
