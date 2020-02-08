@@ -1,3 +1,9 @@
-__pycache__
+# config
 .vscode
+
+# caching
+__pycache__
 .DS_Store
+
+# ignore recording files
+recordings
