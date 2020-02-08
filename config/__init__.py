@@ -3,4 +3,4 @@ from .game import game
 
 from .bird import bird
 from .tubes import tubes
-from .util import colors, events, keys
+from .util import colors, events, keys, logging

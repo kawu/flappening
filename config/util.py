@@ -1,5 +1,11 @@
 #
 #
+# logging:
+#
+logging = {'record_path': 'loggin/recordings/'}
+
+#
+#
 # colors:
 #
 colors = {
@@ -20,7 +26,7 @@ events = {
     'KEYDOWN': 2,  # : {'key', 'mod', 'unicode', 'scancode'}
     'KEYUP': 3,  # : {'key', 'mod'}
     'USEREVENT': 24,  # : {'key', 'mod'}
-          }
+}
 
 #
 #

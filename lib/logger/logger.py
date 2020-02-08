@@ -2,6 +2,8 @@ import pickle
 
 from datetime import datetime
 
+from config import logging
+
 
 class Logger:
 
@@ -14,7 +16,7 @@ class Logger:
 
         self.data: dict = {'gameMode': gameMode, 'snapshots': [], 'score': 0}
 
-        self.outpath = 'recordings/'
+        self.outpath = logging['record_path']
 
     #  -------- Destruct -----------
     #
