@@ -48,11 +48,11 @@ class Game:
 
         # human
         if (self.gameMode == 0):
-            self.player = Human(self.screen, 0)
+            self.players: list = [Human(self.screen, 0)]
 
         # machine single
         elif (self.gameMode == 1):
-            self.player = Machine(self.screen, 0)
+            self.players: list = [Machine(self.screen, 0)]
 
         # machine array
         elif (self.gameMode == 2):
@@ -61,7 +61,7 @@ class Game:
 
         #
         # --- Initiate & Save Tubes'/obstacles
-        self.tubes = [Tubes(self.screen)]
+        self.tubes: list = [Tubes(self.screen)]
 
     #
     #
@@ -74,18 +74,26 @@ class Game:
         while gameOn:
 
             # --- Player(s) turn(s)
-            gameOn = self.player.turn()
+            for player in self.players:
+
+                # machine observes game
+                if (player.isMachine()):
+                    player.observe(self.tubes)
+
+                # player takes action
+                player.turn()
 
             # --- Tubes' moving
             for tubes in self.tubes:
                 tubes.move()
 
                 # check tubes collide with Player(s)
-                if (tubes.collision(self.player.bird)):
-                    gameOn = False
-                    continue
+                for player in self.players:
+                    if (tubes.collision(player.bird)):
+                        gameOn = False
+                        continue
 
-                # remove out of bound tubes
+                # remove not visible tubes
                 if (not tubes.visible()):
                     self.tubes.remove(tubes)
 
@@ -102,7 +110,8 @@ class Game:
                 tubes.draw()
 
             # --- Draw player(s)
-            self.player.draw()
+            for player in self.players:
+                player.draw()
 
             # --- Update the screen
             pygame.display.flip()
