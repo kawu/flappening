@@ -1,7 +1,6 @@
 import pygame
 
-from lib.player import Human
-from lib.player import Machine
+from lib.player import Human, Machine, Neural
 
 from lib.entities import Tubes
 
@@ -17,7 +16,6 @@ class Game:
     def __init__(self, gameMode: int = 0):
         super().__init__()
 
-        # NOTE set/save gamemode:
         # 0 : human player
         # 1 : single simple machine player
         # 2 : evolving array of machine players
@@ -57,7 +55,7 @@ class Game:
         # machine array
         elif (self.gameMode == 2):
             # TODO: evolving array of machine players
-            pass
+            self.players: list = [Neural(self.screen, 0)]
 
         #
         # --- Initiate & Save Tubes'/obstacles
@@ -89,7 +87,8 @@ class Game:
 
                 # check tubes collide with Player(s)
                 for player in self.players:
-                    if (tubes.collision(player.bird)):
+                    if (tubes.collision(player.bird)
+                            or not player.bird.inBound()):
                         gameOn = False
                         continue
 
@@ -98,8 +97,9 @@ class Game:
                     self.tubes.remove(tubes)
 
             # --- Add new tubes if necessary
-            if (game['size'][1] - self.tubes[-1].getXCenter() >
-                    game['tubeGap']):
+            tubleWallDistance = game['size'][1] - self.tubes[-1].getXCenter()
+
+            if (tubleWallDistance > game['tubeGap']):
                 self.tubes.append(Tubes(self.screen))
 
             # --- Screen-clearing
