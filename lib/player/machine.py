@@ -33,6 +33,9 @@ class Machine(Player):
             self.bird.position[1] / game['size'][1]
         ]
 
+        # empty positions
+        self.inTubesPosition = list()
+
         for tube in tubes:
             self.inTubesPosition.append([
                 tube.getXCenter() / game['size'][0],
