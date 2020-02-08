@@ -2,7 +2,7 @@
 #
 # logging:
 #
-logging = {'record_path': 'loggin/recordings/'}
+logging = {'record_path': 'logging/recordings/'}
 
 #
 #
