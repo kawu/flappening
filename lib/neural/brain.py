@@ -42,21 +42,14 @@ class Brain(nn.Module):
     #  -------- Think -----------
     #
     def think(self, data):
-        self.zero_grad()
 
-        x1 = torch.FloatTensor([data[0][0]])  # bird Y
-        x2 = torch.FloatTensor([data[1][0][0]])  # pipes.index(0) Y
-        x3 = torch.FloatTensor([data[1][0][1]])  # pipes.index(0) X
+        with torch.no_grad():
 
-        x = torch.cat((
-            x1,
-            x2,
-            x3,
-        ))
+            x = torch.FloatTensor(data)
 
-        x = self.forward(x)
+            x = self.forward(x)
 
-        if (False):  # x > .5
-            return True
+            if (x > .5):
+                return True
 
-        return False
+            return False
