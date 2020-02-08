@@ -1,5 +1,21 @@
-def training(game, epochs: int = 10, players: int = 10):
+def training(game, epochs: int = 10):
 
     for n in range(epochs):
-        game.setup()
+
         game.run()
+
+        players = game.getPlayersGarbage()
+
+        freq = {}
+
+        for item in [player.score.getValue() for player in players]:
+
+            if (item in freq):
+                freq[item] += 1
+
+            else:
+                freq[item] = 1
+
+        print(freq)
+
+        game.reset()
