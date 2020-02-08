@@ -5,6 +5,11 @@ from config import game, colors
 
 # default particle class (rectangular box):
 class Particle:
+
+    #
+    #
+    #  -------- Init -----------
+    #
     def __init__(self,
                  screen,
                  size: list = [0, 0],
@@ -23,27 +28,9 @@ class Particle:
         self.position: list = position
         self.color: set = color
 
-    def draw(self) -> None:
-        # draw.rect(surface[display.obj], color[tuple], rect[left[px], top[px], width[px], height[px]])
-        # src: https://www.pygame.org/docs/ref/draw.html#pygame.draw.rect
-        pygame.draw.rect(self.screen, self.color, (self.position, self.size))
-
-    def getSize(self) -> list:
-
-        # debug printing
-        if (self.debug):
-            print(self.size)
-
-        return self.size
-
-    def getPosition(self) -> list:
-
-        # debug printing
-        if (self.debug):
-            print(self.position)
-
-        return self.position
-
+    #
+    #
+    #  -------- GetBoxModel -----------
     # TODO: solve this elegant:
     def getBoxModel(self) -> list:
 
@@ -60,6 +47,10 @@ class Particle:
 
         return [p1, p2, p3, p4]
 
+    #
+    #
+    #  -------- inBound -----------
+    #
     def inBound(self) -> bool:
 
         # check border collision for each point in box model
@@ -75,6 +66,10 @@ class Particle:
 
         return True
 
+    #
+    #
+    #  -------- Visible -----------
+    #
     def visible(self) -> bool:
 
         # check if each point in box model is out of bound
@@ -90,6 +85,10 @@ class Particle:
 
         return False
 
+    #
+    #
+    #  -------- collision -----------
+    #
     def collision(self, particle) -> bool:
 
         # Rectangle/Rectangle collision
@@ -101,3 +100,30 @@ class Particle:
             return True
 
         return False
+
+    #  -------- draw -----------
+    #
+    def draw(self) -> None:
+        # draw.rect(surface[display.obj], color[tuple], rect[left[px], top[px], width[px], height[px]])
+        # src: https://www.pygame.org/docs/ref/draw.html#pygame.draw.rect
+        pygame.draw.rect(self.screen, self.color, (self.position, self.size))
+
+    #  -------- getSize -----------
+    #
+    def getSize(self) -> list:
+
+        # debug printing
+        if (self.debug):
+            print(self.size)
+
+        return self.size
+
+    #  -------- getPosition -----------
+    #
+    def getPosition(self) -> list:
+
+        # debug printing
+        if (self.debug):
+            print(self.position)
+
+        return self.position

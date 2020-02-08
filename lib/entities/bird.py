@@ -4,6 +4,11 @@ from config import bird
 
 
 class Bird(Particle):
+
+    #
+    #
+    #  -------- Init -----------
+    #
     def __init__(self,
                  screen,
                  velocity: float = bird['startVelocity'],
@@ -22,9 +27,10 @@ class Bird(Particle):
         self.maxVelocity: float = maxVelocity
         self.lift: float = lift
 
-    def draw(self) -> None:
-        super().draw()
-
+    #
+    #
+    #  -------- Move -----------
+    #
     def move(self, flapped: bool = False) -> None:
 
         if flapped:
@@ -39,3 +45,8 @@ class Bird(Particle):
             # increase fall rate
             if (self.velocity < self.maxVelocity):
                 self.velocity *= bird['attraction']
+
+    #  -------- draw -----------
+    #
+    def draw(self) -> None:
+        super().draw()

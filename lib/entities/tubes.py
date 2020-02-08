@@ -6,6 +6,11 @@ from config import tubes, game
 
 
 class Tubes():
+
+    #
+    #
+    #  -------- Init -----------
+    #
     def __init__(self,
                  screen,
                  width: int = tubes['width'],
@@ -38,10 +43,34 @@ class Tubes():
             position=[self.xCenter, self.yCenter + self.gap / 2],
             color=tubes['color'])
 
-    def draw(self) -> None:
-        self.upper.draw()
-        self.lower.draw()
+    #
+    #
+    #  -------- Visible -----------
+    #
+    def visible(self) -> bool:
+        # check if both pipes are inBound:
+        if (self.upper.visible() or self.lower.visible()):
+            return True
 
+        # default False:
+        return False
+
+    #
+    #
+    #  -------- Collision -----------
+    #
+    def collision(self, particle) -> bool:
+        # check if on of the pipes are colliding:
+        if (self.upper.collision(particle) or self.lower.collision(particle)):
+            return True
+
+        # default False:
+        return False
+
+    #
+    #
+    #  -------- Move -----------
+    #
     def move(self) -> None:
         # move self center
         self.xCenter -= self.speed
@@ -50,6 +79,10 @@ class Tubes():
         self.upper.position[0] -= self.speed
         self.lower.position[0] -= self.speed
 
+    #
+    #
+    #  -------- rndYCenter -----------
+    #
     def rndYCenter(self) -> float:
 
         minY: int = self.padding + self.gap / 2
@@ -59,23 +92,18 @@ class Tubes():
         # src: https://docs.python.org/2/library/random.html#random.randint
         return random.randint(minY, maxY)
 
-    def visible(self) -> bool:
-        # check if both pipes are inBound:
-        if (self.upper.visible() or self.lower.visible()):
-            return True
+    #  -------- draw -----------
+    #
+    def draw(self) -> None:
+        self.upper.draw()
+        self.lower.draw()
 
-        # default False:
-        return False
-
-    def collision(self, particle) -> bool:
-        # check if on of the pipes are colliding:
-        if (self.upper.collision(particle) or self.lower.collision(particle)):
-            return True
-
-        return False
-
+    #  -------- getYCenter -----------
+    #
     def getYCenter(self) -> float:
         return self.yCenter
 
+    #  -------- getXCenter -----------
+    #
     def getXCenter(self) -> float:
         return self.xCenter
