@@ -1,7 +1,7 @@
 import pygame
 
-from entities.bird import Bird
-from entities.util import Score
+from entities import Bird
+from entities import Score
 
 
 class Player():

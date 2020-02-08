@@ -1,6 +1,6 @@
-from entities.particle import Particle
+from entities import Particle
 
-from config.bird import bird
+from config import bird
 
 
 class Bird(Particle):

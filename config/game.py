@@ -15,5 +15,5 @@ game = {
     #
     # physics:
     'fps': 30,
-    'tubeGap': 80,
+    'tubeGap': 100,
 }

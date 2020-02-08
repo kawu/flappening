@@ -1,6 +1,6 @@
 from player.player import Player
 
-from config.util import events, keys
+from config import events, keys
 
 
 class Human(Player):

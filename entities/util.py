@@ -1,6 +1,6 @@
 import pygame
 
-from entities.particle import Particle
+from entities import Particle
 
 from config.util import colors
 

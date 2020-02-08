@@ -12,8 +12,8 @@ bird = {
     'color': colors['red'],
     #
     # physics:
-    'startVelocity': 5.0,
+    'startVelocity': 1.25,
     'maxVelocity': 15.0,
     'lift': 25.0,
-    'attraction': 1.35,
+    'attraction': 1.15,
 }
