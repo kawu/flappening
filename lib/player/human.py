@@ -4,12 +4,21 @@ from config import events, keys
 
 
 class Human(Player):
+
+    #
+    #
+    #  -------- Init -----------
+    #
     def __init__(self, screen, score):
         super().__init__(
             screen,
             score,
         )
 
+    #
+    #
+    #  -------- Interact -----------
+    #
     def interact(self, event):
 
         # --- Check for keypress
@@ -21,5 +30,7 @@ class Human(Player):
 
         return False
 
+    #  -------- draw -----------
+    #
     def draw(self):
         super().draw()

@@ -4,11 +4,20 @@ from lib.entities import Bird, Score
 
 
 class Player():
+
+    #
+    #
+    #  -------- Init -----------
+    #
     def __init__(self, screen, score):
 
         self.bird = Bird(screen)
         self.score = Score(screen, score)
 
+    #
+    #
+    #  -------- Turn -----------
+    #
     def turn(self):
 
         flapped = False
@@ -36,10 +45,12 @@ class Player():
 
         return True
 
-    # ABSTRACT METHOD
+    #  -------- interact -----------
+    #  --- ABSTRACT METHOD
     def interact(self):
         pass
 
+    #  -------- draw -----------
     def draw(self):
         self.bird.draw()
         self.score.draw()
