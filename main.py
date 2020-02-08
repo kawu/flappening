@@ -8,7 +8,7 @@ parser.add_argument('gameMode',
                     help='choose the gameMode. 0 : playing, 1 : training',
                     type=int,
                     nargs='?',
-                    const=0)
+                    const=1)
 
 # run iff file is main
 if __name__ == '__main__':
@@ -21,4 +21,4 @@ if __name__ == '__main__':
         test__training()
 
     else:
-        test__playing()
+        test__training()
