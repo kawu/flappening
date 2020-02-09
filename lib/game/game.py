@@ -172,6 +172,11 @@ class Game:
         # --- Update clock with game fps
         self.clock.tick(game['fps'])
 
+    # -------- loadPlayers -----------
+    #
+    def loadPlayers(self, players):
+        self.players = players
+
     # -------- getPlayer -----------
     #
     def getPlayers(self):
