@@ -29,14 +29,12 @@ class Tubes():
         self.yCenter: float = self.rndYCenter()
         self.xCenter: float = game['size'][0]
 
-        # TODO solve this elegant
         self.upper = Particle(
             position=[self.xCenter, 0],
             size=[self.width, self.yCenter - self.gap / 2],
             color=tubes['color'],
         )
 
-        # TODO solve this elegant
         self.lower = Particle(
             position=[self.xCenter, self.yCenter + self.gap / 2],
             size=[self.width, game['size'][1] - self.yCenter + self.gap / 2],
