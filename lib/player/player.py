@@ -1,4 +1,4 @@
-from lib.entities import Bird, Score
+from lib.entities import Bird
 
 
 class Player():
@@ -7,10 +7,10 @@ class Player():
     #
     #  -------- Init -----------
     #
-    def __init__(self, screen, score):
+    def __init__(self):
 
-        self.bird = Bird(screen)
-        self.score = Score(screen, score)
+        self.bird = Bird()
+        self.score: int = 0
 
     #
     #
@@ -28,7 +28,7 @@ class Player():
         flapped = self.interact(event)
 
         self.bird.move(flapped=flapped)
-        self.score.increase()
+        self.score += 1
 
         return True
 
@@ -40,4 +40,7 @@ class Player():
     #  -------- draw -----------
     def draw(self):
         self.bird.draw()
-        self.score.draw()
+
+    #  -------- getScore -----------
+    def getScore(self):
+        return self.score
