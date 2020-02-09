@@ -33,8 +33,11 @@ class Machine(Player):
         self.inTubesPosition = list()
 
         for tube in tubes:
+
+            tubeXEnd = (tube.getXCenter() + tube.width / 2)
+
             self.inTubesPosition.append([
-                tube.getXCenter() / game['size'][0],
+                tubeXEnd / game['size'][0],
                 tube.getYCenter() / game['size'][1]
             ])
 
