@@ -49,9 +49,10 @@ if __name__ == '__main__':
 * 0.1.5: human and dummy machine player
 * 0.1.6: game recording
 * 0.2.0: tests, argparse includes
+* 0.3.0: optimization through evolution and mutation
 
 ## Roadmap
-* optimization through evolution and mutation
+* enhancing evolution and mutation
 * reworking logging
 * integrate statistic output
 * -- sprites for bird, tubes, background
