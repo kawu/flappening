@@ -2,12 +2,12 @@ import pygame
 
 from config import game, colors
 
+# create default boundary object
+BOUND = pygame.Rect((0, 0), game['size'])
+
 
 # default particle class (rect):
 class Particle(pygame.Rect):
-
-    # create default boundary object
-    BOUND = pygame.Rect((0, 0), game['size'])
 
     #
     #
@@ -32,7 +32,7 @@ class Particle(pygame.Rect):
 
         # Rect.contains(Rect)
         # https://www.pygame.org/docs/ref/rect.html#pygame.Rect.contains
-        if (self.BOUND.contains(self)):
+        if (BOUND.contains(self)):
             return True
 
         return False
@@ -52,7 +52,7 @@ class Particle(pygame.Rect):
     #
     def visible(self) -> bool:
 
-        if (self.collision(self.BOUND)):
+        if (self.collision(BOUND)):
             return True
 
         return False
