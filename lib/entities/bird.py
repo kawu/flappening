@@ -9,14 +9,14 @@ class Bird(Particle):
     #
     #  -------- Init -----------
     #
-    def __init__(self,
-                 screen,
-                 velocity: float = bird['startVelocity'],
-                 maxVelocity: float = bird['maxVelocity'],
-                 lift: float = bird['lift']):
+    def __init__(
+            self,
+            velocity: float = bird['startVelocity'],
+            maxVelocity: float = bird['maxVelocity'],
+            lift: float = bird['lift'],
+    ):
 
         super().__init__(
-            screen,
             size=bird['size'],
             position=bird['startPosition'],
             color=bird['color'],
@@ -35,12 +35,12 @@ class Bird(Particle):
 
         if flapped:
             # lift in y position
-            self.position[1] -= self.lift
+            self.y -= self.lift
             self.velocity = self.startVelocity
 
         else:
             # drop in y position
-            self.position[1] += self.velocity
+            self.y += self.velocity
 
             # increase fall rate
             if (self.velocity < self.maxVelocity):

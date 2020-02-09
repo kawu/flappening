@@ -11,16 +11,15 @@ class Tubes():
     #
     #  -------- Init -----------
     #
-    def __init__(self,
-                 screen,
-                 width: int = tubes['width'],
-                 padding: int = tubes['padding'],
-                 gap: int = tubes['gap'],
-                 speed: float = tubes['speed']):
+    def __init__(
+            self,
+            width: int = tubes['width'],
+            padding: int = tubes['padding'],
+            gap: int = tubes['gap'],
+            speed: float = tubes['speed'],
+    ):
 
         super().__init__()
-
-        self.screen = screen
 
         self.width: int = width
         self.padding: int = padding
@@ -31,17 +30,18 @@ class Tubes():
         self.xCenter: float = game['size'][0]
 
         # TODO solve this elegant
-        self.upper = Particle(self.screen,
-                              size=[self.width, self.yCenter - self.gap / 2],
-                              position=[self.xCenter, 0],
-                              color=tubes['color'])
+        self.upper = Particle(
+            position=[self.xCenter, 0],
+            size=[self.width, self.yCenter - self.gap / 2],
+            color=tubes['color'],
+        )
 
         # TODO solve this elegant
         self.lower = Particle(
-            self.screen,
-            size=[self.width, game['size'][1] - self.yCenter + self.gap / 2],
             position=[self.xCenter, self.yCenter + self.gap / 2],
-            color=tubes['color'])
+            size=[self.width, game['size'][1] - self.yCenter + self.gap / 2],
+            color=tubes['color'],
+        )
 
     #
     #
@@ -76,8 +76,8 @@ class Tubes():
         self.xCenter -= self.speed
 
         # move particles
-        self.upper.position[0] -= self.speed
-        self.lower.position[0] -= self.speed
+        self.upper.x -= self.speed
+        self.lower.x -= self.speed
 
     #
     #

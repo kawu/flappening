@@ -57,25 +57,23 @@ class Game:
 
         # human
         if (self.gameMode == 0):
-            self.players: list = [Human(self.screen, 0)]
+            self.players: list = [Human()]
 
         # machine single
         elif (self.gameMode == 1):
-            self.players: list = [Machine(self.screen, 0)]
+            self.players: list = [Machine()]
 
         # machine array
         elif (self.gameMode == 2):
 
-            self.players: list = [
-                Neural(self.screen, 0) for i in range(self.playerCount)
-            ]
+            self.players: list = [Neural() for i in range(self.playerCount)]
 
         # players garbage
         self.playersGarbage: list = []
 
         #
         # --- Initiate & Save Tubes'/obstacles
-        self.tubes: list = [Tubes(self.screen)]
+        self.tubes: list = [Tubes()]
 
     #
     #
@@ -150,7 +148,7 @@ class Game:
         tubleWallDistance = game['size'][1] - self.tubes[-1].getXCenter()
 
         if (tubleWallDistance > game['tubeGap']):
-            self.tubes.append(Tubes(self.screen))
+            self.tubes.append(Tubes())
 
     #
     #
