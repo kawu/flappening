@@ -8,11 +8,8 @@ class Neural(Machine):
     #
     #  -------- Init -----------
     #
-    def __init__(self, screen, score):
-        super().__init__(
-            screen,
-            score,
-        )
+    def __init__(self):
+        super().__init__()
 
         self.brain = Brain(3)
 

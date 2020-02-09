@@ -11,11 +11,8 @@ class Machine(Player):
     #
     #  -------- Init -----------
     #
-    def __init__(self, screen, score):
-        super().__init__(
-            screen,
-            score,
-        )
+    def __init__(self):
+        super().__init__()
 
         self.logger = Logger(muted=True)
 
@@ -29,8 +26,7 @@ class Machine(Player):
     def observe(self, tubes):
 
         self.inBirdPosition = [
-            self.bird.position[0] / game['size'][0],
-            self.bird.position[1] / game['size'][1]
+            self.bird.x / game['size'][0], self.bird.y / game['size'][1]
         ]
 
         # empty positions
@@ -54,7 +50,7 @@ class Machine(Player):
             'inTubesPosition': self.inTubesPosition
         })
 
-        self.logger.update({'score': self.score.getValue()})
+        self.logger.update({'score': self.getScore()})
 
     #
     #
