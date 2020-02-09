@@ -9,11 +9,8 @@ class Human(Player):
     #
     #  -------- Init -----------
     #
-    def __init__(self, screen, score):
-        super().__init__(
-            screen,
-            score,
-        )
+    def __init__(self):
+        super().__init__()
 
     #
     #
@@ -29,11 +26,6 @@ class Human(Player):
                 return True
 
         return False
-
-    #  -------- draw -----------
-    #
-    def draw(self):
-        super().draw()
 
     #  -------- isMachine -----------
     #
