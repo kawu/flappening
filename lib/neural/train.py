@@ -8,7 +8,7 @@ def training(game, epochs: int = 10):
 
         freq = {}
 
-        for item in [player.score.getValue() for player in players]:
+        for item in [player.getScore() for player in players]:
 
             if (item in freq):
                 freq[item] += 1
