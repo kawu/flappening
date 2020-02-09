@@ -1,3 +1,6 @@
+from .evolution import evolve
+
+
 def training(game, epochs: int = 10):
 
     for n in range(epochs):
@@ -5,6 +8,8 @@ def training(game, epochs: int = 10):
         game.run()
 
         players = game.getPlayersGarbage()
+
+        nextPlayers = evolve(players)
 
         freq = {}
 
@@ -19,3 +24,4 @@ def training(game, epochs: int = 10):
         print('Scores for epoch: \t' + str(n) + ' : ' + str(freq))
 
         game.reset()
+        game.loadPlayers(nextPlayers)

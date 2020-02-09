@@ -1,3 +1,5 @@
+import copy
+
 from lib.player import Machine
 from lib.neural import Brain
 
@@ -8,10 +10,16 @@ class Neural(Machine):
     #
     #  -------- Init -----------
     #
-    def __init__(self):
+    def __init__(self, brain=None):
         super().__init__()
 
-        self.brain = Brain(3)
+        # use given brain
+        if (brain):
+            self.brain = brain
+
+        # create new brain
+        else:
+            self.brain = Brain(3)
 
     #
     #
@@ -36,3 +44,8 @@ class Neural(Machine):
             return True
 
         return False
+
+    #  -------- __deepcopy__ -----------
+    #
+    def __deepcopy__(self):
+        return Neural(copy.deepcopy(self.brain))
