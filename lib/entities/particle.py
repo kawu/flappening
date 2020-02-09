@@ -3,101 +3,56 @@ import pygame
 from config import game, colors
 
 
-# default particle class (rectangular box):
-class Particle:
+# default particle class (rect):
+class Particle(pygame.Rect):
+
+    # create default boundary object
+    BOUND = pygame.Rect((0, 0), game['size'])
 
     #
     #
     #  -------- Init -----------
     #
     def __init__(self,
-                 screen,
-                 size: list = [0, 0],
                  position: list = [0, 0],
-                 color: tuple = colors['black'],
-                 debug: bool = False):
-        super().__init__()
+                 size: list = [0, 0],
+                 color: tuple = colors['black']):
 
-        # enables additional printing
-        self.debug: bool = debug
+        super().__init__(position, size)
 
-        # saves corresponding screen object
-        self.screen = screen
+        # get corresponding screen object
+        self.screen = pygame.display.get_surface()
 
-        # shallow copying values
-        self.size = list(size)
-        self.position = list(position)
-        self.color = tuple(color)
+        # save color
+        self.color = color
 
-    #
-    #
-    #  -------- GetBoxModel -----------
-    # TODO: solve this elegant:
-    def getBoxModel(self) -> list:
-
-        # p(x,y)px
-        p1 = tuple(self.position)  # top left
-        p3 = (self.position[0], self.position[1] + self.size[1])  # top right
-        p2 = (self.position[0] + self.size[0], self.position[1])  # bottom left
-        p4 = (self.position[0] + self.size[0], self.position[1] + self.size[1]
-              )  # bottom right
-
-        # debug printing
-        if (self.debug):
-            print([p1, p2, p3, p4])
-
-        return [p1, p2, p3, p4]
-
-    #
-    #
     #  -------- inBound -----------
     #
     def inBound(self) -> bool:
 
-        # check border collision for each point in box model
-        for point in self.getBoxModel():
-
-            # check if x is out of bound
-            if (point[0] < 0 or point[0] > game['size'][0]):
-                return False
-
-            # check if y out of bound
-            if (point[1] < 0 or point[1] > game['size'][1]):
-                return False
-
-        return True
-
-    #
-    #
-    #  -------- Visible -----------
-    #
-    def visible(self) -> bool:
-
-        # check if each point in box model is out of bound
-        for point in self.getBoxModel():
-
-            # check if x is out of bound
-            if (not point[0] < 0 or not point[0] > game['size'][0]):
-                return True
-
-            # check if y out of bound
-            if (not point[1] < 0 or not point[1] > game['size'][1]):
-                return True
+        # Rect.contains(Rect)
+        # https://www.pygame.org/docs/ref/rect.html#pygame.Rect.contains
+        if (self.BOUND.contains(self)):
+            return True
 
         return False
 
-    #
-    #
     #  -------- collision -----------
     #
     def collision(self, particle) -> bool:
 
-        # Rectangle/Rectangle collision
-        # src: http://www.jeffreythompson.org/collision-detection/rect-rect.php
-        if (self.position[0] + self.size[0] >= particle.position[0]
-                and self.position[0] <= particle.position[0] + particle.size[0]
-                and self.position[1] + self.size[1] >= particle.position[1] and
-                self.position[1] <= particle.position[1] + particle.size[1]):
+        # Rect.colliderect(Rect)
+        # https://www.pygame.org/docs/ref/rect.html#pygame.Rect.colliderect
+        if (self.colliderect(particle)):
+            return True
+
+        return False
+
+    #  -------- visible -----------
+    #
+    def visible(self) -> bool:
+
+        if (self.collision(self.BOUND)):
             return True
 
         return False
@@ -105,26 +60,7 @@ class Particle:
     #  -------- draw -----------
     #
     def draw(self) -> None:
-        # draw.rect(surface[display.obj], color[tuple], rect[left[px], top[px], width[px], height[px]])
+
+        # draw.rect(Surface[display.obj], Color[tuple], Particle[rect.object])
         # src: https://www.pygame.org/docs/ref/draw.html#pygame.draw.rect
-        pygame.draw.rect(self.screen, self.color, (self.position, self.size))
-
-    #  -------- getSize -----------
-    #
-    def getSize(self) -> list:
-
-        # debug printing
-        if (self.debug):
-            print(self.size)
-
-        return self.size
-
-    #  -------- getPosition -----------
-    #
-    def getPosition(self) -> list:
-
-        # debug printing
-        if (self.debug):
-            print(self.position)
-
-        return self.position
+        pygame.draw.rect(self.screen, self.color, self)
