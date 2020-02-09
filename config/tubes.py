@@ -1,6 +1,5 @@
-from config.util import colors
+import pygame
 
-#
 #
 # tubes configuration:
 #
@@ -10,7 +9,7 @@ tubes = {
     'width': 50,  # px
     'padding': 20,  # px
     'gap': 120,  # px
-    'color': colors['blue'],
+    'color': pygame.Color('BLUE'),
     #
     # physics:
     'speed': 5,  # px

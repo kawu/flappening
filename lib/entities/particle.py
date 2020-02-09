@@ -1,6 +1,6 @@
 import pygame
 
-from config import game, colors
+from config import game
 
 # create default boundary object
 BOUND = pygame.Rect((0, 0), game['size'])
@@ -13,10 +13,12 @@ class Particle(pygame.Rect):
     #
     #  -------- Init -----------
     #
-    def __init__(self,
-                 position: list = [0, 0],
-                 size: list = [0, 0],
-                 color: tuple = colors['black']):
+    def __init__(
+            self,
+            position: list = [0, 0],
+            size: list = [0, 0],
+            color=pygame.Color('BlACK'),
+    ):
 
         super().__init__(position, size)
 

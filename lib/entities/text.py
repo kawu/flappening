@@ -1,7 +1,5 @@
 import pygame
 
-from config.util import colors
-
 
 class Text():
 
@@ -14,7 +12,7 @@ class Text():
             content: str = '',
             size: int = 24,
             position: list = [600, 25],
-            color=colors['black'],
+            color=pygame.Color('BlACK'),
     ):
 
         # get corresponding screen object

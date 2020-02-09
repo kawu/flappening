@@ -1,4 +1,4 @@
-from config.util import colors
+import pygame
 
 #
 #
@@ -9,7 +9,7 @@ bird = {
     # size, position, color:
     'size': [30, 30],  # px
     'startPosition': [120, 160],  # px
-    'color': colors['red'],
+    'color': pygame.Color('RED'),
     #
     # physics:
     'startVelocity': 1.25,

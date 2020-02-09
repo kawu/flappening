@@ -1,4 +1,4 @@
-from config.util import colors
+import pygame
 
 #
 #
@@ -14,7 +14,7 @@ game = {
     #
     # screen size[width, height], background color:
     'size': (700, 500),  # px
-    'color': colors['white'],
+    'color': pygame.Color('WHITE'),
     #
     # physics:
     'fps': 30,
