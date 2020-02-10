@@ -12,5 +12,5 @@ tubes = {
     'color': pygame.Color('BLUE'),
     #
     # physics:
-    'speed': 5,  # px
+    'speed': 10,  # px
 }

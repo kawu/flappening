@@ -12,8 +12,8 @@ bird = {
     'color': pygame.Color('RED'),
     #
     # physics:
-    'startVelocity': 1.25,
-    'maxVelocity': 15.0,
+    'startVelocity': 2.50,
+    'maxVelocity': 20.0,
     'lift': 25.0,
     'attraction': 1.15,
 }

@@ -17,6 +17,6 @@ game = {
     'color': pygame.Color('WHITE'),
     #
     # physics:
-    'fps': 30,
+    'fps': 60,
     'tubeGap': 100,
 }
