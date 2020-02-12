@@ -1,5 +1,3 @@
-from flappening.logger import Logger
-
 from flappening.player import Player
 
 from config import game
@@ -13,8 +11,6 @@ class Machine(Player):
     #
     def __init__(self):
         super().__init__()
-
-        self.logger = Logger(muted=True)
 
         self.inBirdPosition: list = []
         self.inTubesPosition: list = []
@@ -40,20 +36,6 @@ class Machine(Player):
                 tubeXEnd / game['size'][0],
                 tube.getYCenter() / game['size'][1]
             ])
-
-        self.log()
-
-    #
-    #
-    #  -------- Log -----------
-    #
-    def log(self):
-        self.logger.addSnapshot({
-            'inBirdPosition': self.inBirdPosition,
-            'inTubesPosition': self.inTubesPosition
-        })
-
-        self.logger.update({'score': self.getScore()})
 
     #
     #
