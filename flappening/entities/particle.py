@@ -63,6 +63,6 @@ class Particle(pygame.Rect):
     #
     def draw(self) -> None:
 
-        # draw.rect(Surface[display.obj], Color[tuple], Particle[rect.object])
+        # draw.rect(Surface[display.obj], Color[tuple], Particle[rect.object], width[int])
         # src: https://www.pygame.org/docs/ref/draw.html#pygame.draw.rect
-        pygame.draw.rect(self.screen, self.color, self)
+        pygame.draw.rect(self.screen, self.color, self, 1)
