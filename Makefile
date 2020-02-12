@@ -1,12 +1,11 @@
 # The binary to build (basename).
 MODULE := flappening
-MODE := 1
 
 BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
 run:
-	@python -m $(MODULE) $(MODE)
+	@python -m $(MODULE) $(gameMode) $(playerCount) $(trainEpochs)
 
 test:
 	@pytest
