@@ -1,9 +1,10 @@
-# config
-.vscode
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
 
-# caching
-**/__pycache__/
+# vs code config file
+**/.vscode
+
+# osx cache file
 **/.DS_Store
-
-# ignore recording files
-# recordings
