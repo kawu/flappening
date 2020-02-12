@@ -1,16 +1,38 @@
 import argparse
 
-from . import Game
-from .neural import training
+from flappening import Game
+from flappening.neural import training
 
 parser = argparse.ArgumentParser(description='play or train flappening')
+
+# argument: gameMode
 parser.add_argument(
     'gameMode',
     metavar='gameMode',
-    help='choose the gameMode. 0 : human playing, 1 : machine evolution',
+    help='choose the gameMode 0 : human playing, 1 : machine evolution',
     type=int,
     nargs='?',
-    const=1,
+    default=1,
+)
+
+# argument: playerCount
+parser.add_argument(
+    'playerCount',
+    metavar='playerCount',
+    help='choose the playerCount (only for machine evolution)',
+    type=int,
+    nargs='?',
+    default=200,
+)
+
+# argument: trainEpochs
+parser.add_argument(
+    'trainEpochs',
+    metavar='trainEpochs',
+    help='choose the trainEpochs (only for machine evolution)',
+    type=int,
+    nargs='?',
+    default=50,
 )
 
 # run iff file is main
@@ -20,7 +42,7 @@ if __name__ == '__main__':
     # initialize game with console parameters
     game = Game(
         gameMode=args.gameMode,
-        playerCount=1 if args.gameMode == 0 else 200,
+        playerCount=1 if args.gameMode == 0 else args.playerCount,
     )
 
     # run game for human
@@ -33,4 +55,4 @@ if __name__ == '__main__':
     elif (args.gameMode == 1):
 
         print('game mode 1: machine training/evolution')
-        training(game, epochs=30)
+        training(game, epochs=args.trainEpochs)
