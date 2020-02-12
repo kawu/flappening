@@ -1,7 +1,6 @@
 import pygame
 
 from flappening.player import Human, Machine, Neural
-
 from flappening.entities import Tubes
 
 from config import game
@@ -17,8 +16,8 @@ class Game:
         super().__init__()
 
         # 0 : human player
-        # 1 : single simple machine player
-        # 2 : evolving array of machine players
+        # 1 : evolving array of machine players
+        # 2 : single simple machine player (debug)
         self.gameMode = gameMode
 
         self.playerCount = playerCount
@@ -59,14 +58,14 @@ class Game:
         if (self.gameMode == 0):
             self.players: list = [Human()]
 
-        # machine single
-        elif (self.gameMode == 1):
-            self.players: list = [Machine()]
-
         # machine array
-        elif (self.gameMode == 2):
+        elif (self.gameMode == 1):
 
             self.players: list = [Neural() for i in range(self.playerCount)]
+
+        # machine single
+        elif (self.gameMode == 2):
+            self.players: list = [Machine()]
 
         # players garbage
         self.playersGarbage: list = []
