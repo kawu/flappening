@@ -11,32 +11,37 @@ pip3 install -r requirements.txt
 ```
 
 ## Getting Started
-Run game through command line:
+
+### Running
+
+Run game through command line with following options:
 ```bash
-# gameMode options: 
-# 0 : playing human, 
-# 1 : training neural machine
-python3 main.py gameMode
+# options: 
+# gameMode -> 0 : playing human, 1 : neural evolution | (default: 1)
+# playerCount -> INT | (default: 200, only for machine evolution)
+# trainEpochs -> INT | (default: 50, only for machine evolution)
+
+# using python interpreter directly:
+python3 -m flappening [gameMode] [playerCount] [trainEpochs]
+
+# or the Makefile:
+make run [gameMode=VAL] [playerCount=VAL] [trainEpochs=VAL]
+
+# getting help:
+python3 -m flappening --help 
 ```
-or create a custom `main.py`:
-```python
-# import the game
-from flappening import Game
 
-def main():
-    
-    # create new Game Object
-    # gameMode = 0 : human player
-    # gameMode = 1 : single simple machine player
-    # gameMode = 2 : multply neural machine players
-    myGame = Game(gameMode=2)
+### Testing, Linting, Cleaning
 
-    # run the game
-    myGame.run()
+```bash
+# test: [TODO]
+make test
 
-# run iff file is main
-if __name__ == '__main__':
-    main()
+# lint: flake8
+make lint
+
+# clean: Pytest, coverage cache/files
+make clean
 ```
 
 ## Releases
@@ -53,7 +58,6 @@ if __name__ == '__main__':
 
 ## Roadmap
 * enhancing evolution and mutation
-* reworking logging
 * integrate statistic output
 * -- sprites for bird, tubes, background
 * -- sounds for bird, tubes, background
