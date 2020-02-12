@@ -10,7 +10,7 @@ class Text():
     def __init__(
             self,
             content: str = '',
-            size: int = 24,
+            size: int = 22,
             position: list = [600, 25],
             color=pygame.Color('BlACK'),
     ):
@@ -38,3 +38,8 @@ class Text():
         # surface.blit(content[pygame.obj], position[tuple])
         # src: https://www.pygame.org/docs/ref/surface.html#pygame.Surface.blit
         self.screen.blit(text, self.position)
+
+    #  -------- setContent -----------
+    #
+    def setContent(self, content) -> None:
+        self.content = content
