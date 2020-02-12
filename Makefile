@@ -8,6 +8,7 @@ run:
 	@python -m $(MODULE) $(gameMode) $(playerCount) $(trainEpochs)
 
 test:
+	@echo "\n${BLUE}Running PyTest against source and test files...${NC}\n"
 	@pytest
 
 lint:
