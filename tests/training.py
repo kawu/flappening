@@ -1,8 +1,8 @@
 # import the game
-from lib import Game
+from flappening import Game
 
 # import training
-from lib.neural import training
+from flappening.neural import training
 
 
 def test__training():

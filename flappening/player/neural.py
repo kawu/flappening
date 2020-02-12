@@ -1,7 +1,7 @@
 import copy
 
-from lib.player import Machine
-from lib.neural import Brain
+from flappening.player import Machine
+from flappening.neural import Brain
 
 
 class Neural(Machine):

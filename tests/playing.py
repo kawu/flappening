@@ -1,5 +1,5 @@
 # import the game
-from lib import Game
+from flappening import Game
 
 
 def test__playing():

@@ -1,4 +1,4 @@
-from lib.entities import Particle
+from flappening.entities import Particle
 
 from config import bird
 

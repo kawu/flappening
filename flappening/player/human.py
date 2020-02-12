@@ -1,4 +1,4 @@
-from lib.player import Player
+from flappening.player import Player
 
 from config import events, keys
 

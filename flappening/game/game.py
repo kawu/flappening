@@ -1,8 +1,8 @@
 import pygame
 
-from lib.player import Human, Machine, Neural
+from flappening.player import Human, Machine, Neural
 
-from lib.entities import Tubes
+from flappening.entities import Tubes
 
 from config import game
 

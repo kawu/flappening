@@ -1,6 +1,6 @@
-from lib.logger import Logger
+from flappening.logger import Logger
 
-from lib.player import Player
+from flappening.player import Player
 
 from config import game
 

@@ -21,7 +21,7 @@ python3 main.py gameMode
 or create a custom `main.py`:
 ```python
 # import the game
-from lib import Game
+from flappening import Game
 
 def main():
     

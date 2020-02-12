@@ -1,4 +1,4 @@
-from lib.entities import Bird
+from flappening.entities import Bird
 
 
 class Player():
