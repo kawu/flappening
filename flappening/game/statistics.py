@@ -1,5 +1,7 @@
 from flappening.entities import Text
 
+from flappening.utils import avgScore
+
 
 class Statistics:
 
@@ -35,7 +37,8 @@ class Statistics:
             self.bestScore.setContent('best score: ' +
                                       str(players[-1].getScore()))
 
-            self.avgScore.setContent('avg score: ' + 'TODO')
+            self.avgScore.setContent(
+                'avg score: ' + str(avgScore([*players, *playersGarbage])))
 
             self.generation.setContent('generation: ' + str(gameIteration))
 
