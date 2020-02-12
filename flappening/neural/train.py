@@ -1,4 +1,5 @@
-from .evolution import evolve
+# FIXME: importing method relation bug
+from flappening.neural.evolution import evolve
 
 
 def training(game, epochs: int = 10):
