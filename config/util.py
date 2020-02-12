@@ -1,11 +1,5 @@
 #
 #
-# logging:
-#
-logging = {'record_path': 'logging/recordings/'}
-
-#
-#
 # events:
 #
 events = {
