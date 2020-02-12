@@ -15,5 +15,5 @@ bird = {
     'startVelocity': 2.50,
     'maxVelocity': 20.0,
     'lift': 25.0,
-    'attraction': 1.15,
+    'attraction': 1.25,
 }
