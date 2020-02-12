@@ -1,5 +1,8 @@
 import pygame
 
+# FIXME: resolve import
+from .statistics import Statistics
+
 from flappening.player import Human, Machine, Neural
 from flappening.entities import Tubes
 
@@ -22,6 +25,9 @@ class Game:
 
         self.playerCount = playerCount
 
+        # keep track of game iterations
+        self.iteration: int = 0
+
         self.setup()
 
     #
@@ -41,6 +47,9 @@ class Game:
 
         # initiate & save game clock
         self.clock = pygame.time.Clock()
+
+        # initiate & save Statistics
+        self.statistics = Statistics(gameMode=self.gameMode)
 
         # reset game
         self.reset()
@@ -73,6 +82,9 @@ class Game:
         #
         # --- Initiate & Save Tubes'/obstacles
         self.tubes: list = [Tubes()]
+
+        # raise game iteration count
+        self.iteration += 1
 
     #
     #
@@ -149,6 +161,13 @@ class Game:
         if (tubleWallDistance > game['tubeGap']):
             self.tubes.append(Tubes())
 
+        # --- Update Statistics
+        self.statistics.update(
+            self.players,
+            self.playersGarbage,
+            self.iteration,
+        )
+
     #
     #
     # -------- updateScreen -----------
@@ -164,6 +183,9 @@ class Game:
         # --- Draw player(s)
         for player in self.players:
             player.draw()
+
+        # --- Draw Statistics
+        self.statistics.draw()
 
         # --- Update the screen
         pygame.display.flip()
