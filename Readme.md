@@ -55,9 +55,9 @@ make clean
 * 0.1.6: game recording
 * 0.2.0: tests, argparse includes
 * 0.3.0: optimization through evolution and mutation
+* 0.3.5: integrate statistic output
 
 ## Roadmap
 * enhancing evolution and mutation
-* integrate statistic output
 * -- sprites for bird, tubes, background
 * -- sounds for bird, tubes, background
