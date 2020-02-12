@@ -17,7 +17,7 @@ def evolve(players) -> list:
 
 def mutate(player, rate: float = 0.02):
 
-    newPlayer = player.__deepcopy__()
+    newPlayer = player.copy()
 
     for param in player.brain.parameters():
 

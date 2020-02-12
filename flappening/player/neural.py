@@ -45,7 +45,7 @@ class Neural(Machine):
 
         return False
 
-    #  -------- __deepcopy__ -----------
+    #  -------- copy -----------
     #
-    def __deepcopy__(self):
+    def copy(self):
         return Neural(copy.deepcopy(self.brain))
