@@ -1,6 +1,8 @@
 # FIXME: importing method relation bug
 from flappening.neural.evolution import evolve
 
+from flappening.utils import avgScore
+
 
 def training(game, epochs: int = 10):
 
@@ -23,15 +25,3 @@ def training(game, epochs: int = 10):
         # reporting
         print('[Gen: %3d] \t avg: %4d \t best: %4d' %
               (n + 1, avgScore(generation), generation[-1].getScore()))
-
-
-def avgScore(players):
-
-    SUM = 0
-
-    for item in [player.getScore() for player in players]:
-        SUM = SUM + item
-
-    AVG = SUM / len(players)
-
-    return AVG
