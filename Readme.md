@@ -24,7 +24,7 @@ Run game through command line with following options:
 # toSurvive -> INT | (default: 20, only for machine evolution)
 
 # using python interpreter directly:
-python3 -m flappening [-m gameMode] [-p playerCount] [-e trainEpochs] [-m mutationRate] [-s toSurvive]
+python3 -m flappening [gameMode] [playerCount] [trainEpochs] [mutationRate] [toSurvive]
 
 # or the Makefile:
 make run [gameMode=VAL] [playerCount=VAL] [trainEpochs=VAL] [mutationRate=VAL] [toSurvive=VAL]
