@@ -1,26 +1,31 @@
 import random
 
 
-def evolve(players) -> list:
+def evolve(players: list, toSurvive: int = 4) -> list:
 
-    newPlayers: list = []
+    nextPlayers: list = []
 
-    for i in range(int(len(players) / 4)):
+    # elitism selection
+    playerSelection: list = selectElite(players, toSurvive)
 
-        # TODO: improve bird selection, fitness evalutation
-        newPlayers.append(mutate(players[-1]))
-        newPlayers.append(mutate(players[-2]))
-        newPlayers.append(mutate(players[-3]))
-        newPlayers.append(mutate(players[-4]))
+    # keep playerSelection
+    nextPlayers.extend(playerSelection)
 
-    return newPlayers
+    # generate new players
+    for i in range(len(players) - toSurvive):
+
+        # select random player from selection
+        randomSelected = playerSelection[random.randint(0, toSurvive - 1)]
+
+        # mutate and append it
+        nextPlayers.append(mutate(randomSelected))
+
+    return nextPlayers
 
 
-def mutate(player, rate: float = 0.02):
+def mutate(player, rate: float = 0.005):
 
     newPlayer = player.copy()
-
-    # TODO: improve mutation with fitness
 
     for param in player.brain.parameters():
 
@@ -36,3 +41,10 @@ def mutate(player, rate: float = 0.02):
                 param[i0] += rate * random.randint(-1, 1)
 
     return newPlayer
+
+
+def selectElite(players: list, n: int):
+
+    ranking: list = sorted(players, key=lambda player: player.getScore())
+
+    return ranking[len(ranking) - n:]
