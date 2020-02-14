@@ -1,6 +1,6 @@
-from flappening.player import Player
+import pygame
 
-from config import events, keys
+from flappening.player import Player
 
 
 class Human(Player):
@@ -19,10 +19,10 @@ class Human(Player):
     def interact(self, event):
 
         # --- Check for keypress
-        if event.type == events['KEYDOWN']:
+        if event.type == pygame.KEYDOWN:
 
             # UP KEY
-            if (event.key == keys['up'] or event.key == keys['space']):
+            if (event.key == pygame.K_UP or event.key == pygame.K_SPACE):
                 return True
 
         return False

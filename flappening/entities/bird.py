@@ -22,10 +22,11 @@ class Bird(Particle):
             color=bird['color'],
         )
 
-        self.startVelocity: float = velocity
-        self.velocity: float = velocity
-        self.maxVelocity: float = maxVelocity
-        self.lift: float = lift
+        # deepcopying the inputs:
+        self.startVelocity = float(velocity)
+        self.velocity = float(velocity)
+        self.maxVelocity = float(maxVelocity)
+        self.lift = float(lift)
 
     #
     #

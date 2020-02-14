@@ -31,25 +31,22 @@ make run [gameMode=VAL] [playerCount=VAL] [trainEpochs=VAL]
 python3 -m flappening --help 
 ```
 
-### Testing, Linting, Cleaning
+### Linting, Cleaning
 
 ```bash
-# test: [TODO]
-make test
-
 # lint: flake8
 make lint
 
-# clean: Pytest, coverage cache/files
+# clean: cache/tmp files
 make clean
 ```
 
 ## Releases
-* 0.0.0: initial commit
+* 0.0.0: Initial Commit
 * 0.0.1: added bird object *(player character)*
 * 0.0.4: bird in bound detection
 * 0.0.5: added score object
-* 0.1.1: collision detection *(http://www.jeffreythompson.org/collision-detection/rect-rect.php)*
+* 0.1.1: collision detection
 * 0.1.4: tubes object class
 * 0.1.5: human and dummy machine player
 * 0.1.6: game recording
@@ -58,6 +55,5 @@ make clean
 * 0.3.5: integrate statistic output
 
 ## Roadmap
-* enhancing evolution and mutation
-* -- sprites for bird, tubes, background
-* -- sounds for bird, tubes, background
+* Improve Evolution and Mutation
+

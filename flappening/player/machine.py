@@ -37,17 +37,6 @@ class Machine(Player):
                 tube.getYCenter() / game['size'][1]
             ])
 
-    #
-    #
-    #  -------- Interact (dummy) -----------
-    #
-    def interact(self, event=None) -> bool:
-
-        if (self.inBirdPosition[1] > .4):
-            return True
-
-        return False
-
     #  -------- isMachine -----------
     #
     def isMachine(self) -> bool:

@@ -1,7 +1,9 @@
-# calculates average players score
-def avgScore(players):
+def avgScore(players: list) -> float:
+    '''
+        calculates average player score.
+    '''
 
-    SUM = 0
+    SUM: float = 0
 
     for item in [player.getScore() for player in players]:
         SUM = SUM + item
