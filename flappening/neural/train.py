@@ -5,8 +5,9 @@ from flappening.utils import avgScore
 
 def training(
         game,
+        players: int = 200,
         epochs: int = 10,
-        mutationRate: float = 0.02,
+        mutationRate: float = 0.01,
         toSurvive: int = 20,
 ):
 
@@ -17,12 +18,13 @@ def training(
 
     print('''
         [-- training configuration --]
+         -- players: %d
          -- epochs: %d
          -- mutation rate: %4f
          -- to surive: %d
 
         [-- training begin --]
-        ''' % (epochs, mutationRate, toSurvive))
+        ''' % (players, epochs, mutationRate, toSurvive))
 
     for n in range(epochs):
 
