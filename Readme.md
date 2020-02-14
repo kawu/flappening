@@ -53,7 +53,7 @@ make clean
 * 0.2.0: tests, argparse includes
 * 0.3.0: optimization through evolution and mutation
 * 0.3.5: integrate statistic output
+* 0.4.0: Improve Evolution and Mutation
 
-## Roadmap
-* Improve Evolution and Mutation
+## Roadmap [None]
 
