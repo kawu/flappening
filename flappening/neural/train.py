@@ -7,7 +7,7 @@ def training(
         game,
         players: int = 200,
         epochs: int = 10,
-        mutationRate: float = 0.01,
+        mutationRate: float = 0.02,
         toSurvive: int = 20,
 ):
 
