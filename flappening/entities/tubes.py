@@ -4,6 +4,9 @@ from flappening.entities import Particle
 
 from config import tubes, game
 
+# ensure pipes are placed identically every run
+random.seed(42)
+
 
 class Tubes():
 

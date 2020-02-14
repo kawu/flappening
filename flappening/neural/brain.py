@@ -1,6 +1,9 @@
 import torch
 import torch.nn as nn
 
+# ensure brains are created identically every run
+torch.manual_seed(42)
+
 
 class Brain(nn.Module):
 
