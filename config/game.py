@@ -16,7 +16,8 @@ game = {
     'size': (700, 500),  # px
     'color': pygame.Color('WHITE'),
     #
-    # physics:
+    # playing config:
     'fps': 60,
     'tubeGap': 100,
+    'maxScore': 1500,
 }
