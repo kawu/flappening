@@ -16,4 +16,4 @@ lint:
 	@flake8
 
 clean:
-	rm -rf .pytest_cache .coverage .pytest_cache
+	rm -rf logs cache
