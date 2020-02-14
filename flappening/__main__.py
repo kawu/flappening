@@ -7,7 +7,7 @@ parser = argparse.ArgumentParser(description='play or train flappening')
 
 # argument: gameMode
 parser.add_argument(
-    '-m',
+    'gameMode',
     metavar='gameMode',
     help='choose the game mode (0 : human playing, 1 : machine evolution)',
     type=int,
@@ -17,7 +17,7 @@ parser.add_argument(
 
 # argument: playerCount
 parser.add_argument(
-    '-p',
+    'playerCount',
     metavar='playerCount',
     help='choose the number of players (only for machine evolution)',
     type=int,
@@ -27,7 +27,7 @@ parser.add_argument(
 
 # argument: trainEpochs
 parser.add_argument(
-    '-e',
+    'trainEpochs',
     metavar='trainEpochs',
     help='choose the number train epochs (only for machine evolution)',
     type=int,
@@ -37,7 +37,7 @@ parser.add_argument(
 
 # argument: mutationRate
 parser.add_argument(
-    '-r',
+    'mutationRate',
     metavar='mutationRate',
     help='choose the mutation rate (only for machine evolution)',
     type=float,
@@ -47,12 +47,12 @@ parser.add_argument(
 
 # argument: toSurvive
 parser.add_argument(
-    '-s',
+    'toSurvive',
     metavar='toSurvive',
     help='choose how many players survive (only for machine evolution)',
     type=int,
     nargs='?',
-    default=10,
+    default=20,
 )
 
 # run iff file is main
