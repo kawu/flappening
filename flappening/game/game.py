@@ -143,7 +143,8 @@ class Game:
 
             # check tubes collide with Player(s)
             for player in self.players:
-                if (tubes.collision(player.bird) or not player.bird.inBound()):
+                if (tubes.collision(player.bird) or not player.bird.inBound()
+                        or player.getScore() >= game['maxScore']):
 
                     self.players.remove(player)
                     self.playersGarbage.append(player)
