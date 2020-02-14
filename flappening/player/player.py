@@ -20,22 +20,16 @@ class Player():
 
         flapped = False
 
-        # --- Check if game is lost:
-        if (not (self.bird.inBound())):
-            return False
-
         # --- Handle player interaction
         flapped = self.interact(event)
 
         self.bird.move(flapped=flapped)
         self.score += 1
 
-        return True
-
     #  -------- interact -----------
     #  --- ABSTRACT METHOD
     def interact(self, event=None):
-        pass
+        return False
 
     #  -------- draw -----------
     def draw(self):

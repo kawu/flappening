@@ -124,8 +124,8 @@ class Game:
         # --- Player(s) turn(s)
         for player in self.players:
 
-            # machine observes game
-            if (player.isMachine()):
+            # machine observes game, only syntetic user event
+            if (player.isMachine() and pygame.USEREVENT):
                 player.observe(self.tubes)
 
             # player takes action
