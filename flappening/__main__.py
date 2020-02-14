@@ -7,9 +7,9 @@ parser = argparse.ArgumentParser(description='play or train flappening')
 
 # argument: gameMode
 parser.add_argument(
-    'gameMode',
+    '-m',
     metavar='gameMode',
-    help='choose the gameMode 0 : human playing, 1 : machine evolution',
+    help='choose the game mode (0 : human playing, 1 : machine evolution)',
     type=int,
     nargs='?',
     default=1,
@@ -17,9 +17,9 @@ parser.add_argument(
 
 # argument: playerCount
 parser.add_argument(
-    'playerCount',
+    '-p',
     metavar='playerCount',
-    help='choose the playerCount (only for machine evolution)',
+    help='choose the number of players (only for machine evolution)',
     type=int,
     nargs='?',
     default=200,
@@ -27,9 +27,29 @@ parser.add_argument(
 
 # argument: trainEpochs
 parser.add_argument(
-    'trainEpochs',
+    '-e',
     metavar='trainEpochs',
-    help='choose the trainEpochs (only for machine evolution)',
+    help='choose the number train epochs (only for machine evolution)',
+    type=int,
+    nargs='?',
+    default=10,
+)
+
+# argument: mutationRate
+parser.add_argument(
+    '-r',
+    metavar='mutationRate',
+    help='choose the mutation rate (only for machine evolution)',
+    type=float,
+    nargs='?',
+    default=0.02,
+)
+
+# argument: toSurvive
+parser.add_argument(
+    '-s',
+    metavar='toSurvive',
+    help='choose how many players survive (only for machine evolution)',
     type=int,
     nargs='?',
     default=10,
@@ -55,4 +75,10 @@ if __name__ == '__main__':
     elif (args.gameMode == 1):
 
         print('game mode 1: machine training/evolution')
-        training(game, epochs=args.trainEpochs)
+        training(
+            game,
+            players=args.playerCount,
+            epochs=args.trainEpochs,
+            mutationRate=args.mutationRate,
+            toSurvive=args.toSurvive,
+        )
