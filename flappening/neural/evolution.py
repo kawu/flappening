@@ -41,7 +41,7 @@ class Evolution():
             playerSelection = self.bestPlayerHistory[-1]
 
         # generate new players
-        for i in range(len(players) - self.toSurvive):
+        for i in range(len(players)):
 
             # select random player from selection
             randomSelected = playerSelection[random.randint(
