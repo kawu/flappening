@@ -4,6 +4,13 @@ MODULE := flappening
 BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
+# default run config
+gameMode=1
+playerCount=200
+trainEpochs=10
+mutationRate=0.02
+toSurvive=20
+
 run:
 	@python -m $(MODULE) $(gameMode) $(playerCount) $(trainEpochs) $(mutationRate) $(toSurvive)
 
