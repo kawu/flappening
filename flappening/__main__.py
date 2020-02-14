@@ -32,7 +32,7 @@ parser.add_argument(
     help='choose the trainEpochs (only for machine evolution)',
     type=int,
     nargs='?',
-    default=50,
+    default=10,
 )
 
 # run iff file is main
