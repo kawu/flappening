@@ -20,12 +20,14 @@ Run game through command line with following options:
 # gameMode -> 0 : playing human, 1 : neural evolution | (default: 1)
 # playerCount -> INT | (default: 200, only for machine evolution)
 # trainEpochs -> INT | (default: 50, only for machine evolution)
+# mutationRate -> FLOAT | (default: 0.02, only for machine evolution)
+# toSurvive -> INT | (default: 20, only for machine evolution)
 
 # using python interpreter directly:
-python3 -m flappening [gameMode] [playerCount] [trainEpochs]
+python3 -m flappening [-m gameMode] [-p playerCount] [-e trainEpochs] [-m mutationRate] [-s toSurvive]
 
 # or the Makefile:
-make run [gameMode=VAL] [playerCount=VAL] [trainEpochs=VAL]
+make run [gameMode=VAL] [playerCount=VAL] [trainEpochs=VAL] [mutationRate=VAL] [toSurvive=VAL]
 
 # getting help:
 python3 -m flappening --help 

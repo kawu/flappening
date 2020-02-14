@@ -5,7 +5,7 @@ BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
 run:
-	@python -m $(MODULE) $(gameMode) $(playerCount) $(trainEpochs)
+	@python -m $(MODULE) $(gameMode) $(playerCount) $(trainEpochs) $(mutationRate) $(toSurvive)
 
 test:
 	@echo "\n${BLUE}Running PyTest against source and test files...${NC}\n"
