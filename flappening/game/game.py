@@ -145,9 +145,6 @@ class Game:
             for player in self.players:
                 if (tubes.collision(player.bird) or not player.bird.inBound()):
 
-                    if (hasattr(player, 'logger')):
-                        player.logger.write()
-
                     self.players.remove(player)
                     self.playersGarbage.append(player)
 
