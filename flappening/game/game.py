@@ -3,7 +3,7 @@ import pygame
 # FIXME: resolve import
 from .statistics import Statistics
 
-from flappening.player import Human, Machine, Neural
+from flappening.player import Human, Neural
 from flappening.entities import Tubes
 
 from config import game
@@ -19,8 +19,8 @@ class Game:
         super().__init__()
 
         # 0 : human player
-        # 1 : evolving array of machine players
-        # 2 : single simple machine player (debug)
+        # 1 : evolving population of neural players
+        # 2 : single loaded neural player (TODO)
         self.gameMode = gameMode
 
         self.playerCount = playerCount
@@ -67,14 +67,14 @@ class Game:
         if (self.gameMode == 0):
             self.players: list = [Human()]
 
-        # machine array
+        # neural population
         elif (self.gameMode == 1):
 
             self.players: list = [Neural() for i in range(self.playerCount)]
 
-        # machine single
+        # neural single
         elif (self.gameMode == 2):
-            self.players: list = [Machine()]
+            self.players: list = [Neural()]
 
         # players garbage
         self.playersGarbage: list = []
@@ -116,7 +116,7 @@ class Game:
     #
     def handleUserInteraction(self, event):
 
-        # --- Handle window close
+        # --- handle window close
         if event.type == pygame.QUIT:
             pygame.quit()
             exit()
