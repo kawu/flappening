@@ -1,8 +1,6 @@
 import pygame
 
-# FIXME: resolve import
-from .statistics import Statistics
-
+from flappening.game import Statistics
 from flappening.player import Human, Neural
 from flappening.entities import Tubes
 
@@ -15,7 +13,11 @@ class Game:
     #
     #  -------- Init -----------
     #
-    def __init__(self, gameMode: int = 0, playerCount: int = 1):
+    def __init__(
+            self,
+            gameMode: int = 0,
+            playerCount: int = 1,
+    ):
         super().__init__()
 
         # 0 : human player
