@@ -1,9 +1,7 @@
 import pygame
 
-from config import game
-
 # create default boundary object
-BOUND = pygame.Rect((0, 0), game['size'])
+BOUND = pygame.Rect((0, 0), (700, 500))
 
 
 # default particle class (rect):

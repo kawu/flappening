@@ -1,7 +1,5 @@
 from flappening.player import Player
 
-from config import game
-
 
 class Machine(Player):
 
@@ -9,8 +7,8 @@ class Machine(Player):
     #
     #  -------- Init -----------
     #
-    def __init__(self):
-        super().__init__()
+    def __init__(self, config):
+        super().__init__(config)
 
         self.inBirdPosition: list = []
         self.inTubesPosition: list = []
@@ -22,7 +20,8 @@ class Machine(Player):
     def observe(self, tubes):
 
         self.inBirdPosition = [
-            self.bird.x / game['size'][0], self.bird.y / game['size'][1]
+            self.bird.x / self.config['game']['size'][0],
+            self.bird.y / self.config['game']['size'][1]
         ]
 
         # empty positions
@@ -33,8 +32,8 @@ class Machine(Player):
             tubeXEnd = (tube.getXCenter() + tube.width / 2)
 
             self.inTubesPosition.append([
-                tubeXEnd / game['size'][0],
-                tube.getYCenter() / game['size'][1]
+                tubeXEnd / self.config['game']['size'][0],
+                tube.getYCenter() / self.config['game']['size'][1]
             ])
 
     #  -------- isMachine -----------

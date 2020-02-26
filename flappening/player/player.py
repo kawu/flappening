@@ -7,9 +7,11 @@ class Player():
     #
     #  -------- Init -----------
     #
-    def __init__(self):
+    def __init__(self, config):
 
-        self.bird = Bird()
+        self.config = config
+
+        self.bird = Bird(self.config)
         self.score: int = 0
 
     #
@@ -29,7 +31,7 @@ class Player():
     #  -------- interact -----------
     #  --- ABSTRACT METHOD
     def interact(self, event=None):
-        return False
+        return NotImplementedError
 
     #  -------- draw -----------
     def draw(self):

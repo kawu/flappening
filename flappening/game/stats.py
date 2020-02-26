@@ -9,10 +9,8 @@ class Statistics:
     #
     #  -------- Init -----------
     #
-    def __init__(self, gameMode: int = 0):
+    def __init__(self):
         super().__init__()
-
-        self.gameMode = gameMode
 
         self.bestScore = Text('', position=[550, 25])
         self.avgScore = Text('', position=[550, 50])
@@ -25,12 +23,7 @@ class Statistics:
     #
     def update(self, players, playersGarbage, gameIteration) -> None:
 
-        # human player score:
-        if (len(players) >= 1 and self.gameMode == 0):
-            self.bestScore.setContent('score: ' + str(players[-1].getScore()))
-
-        # machine statistics:
-        elif (len(players) >= 1 and self.gameMode == 1):
+        if (len(players) >= 1):
 
             self.playersAlive.setContent('bird alive: ' + str(len(players)))
 

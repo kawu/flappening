@@ -11,7 +11,14 @@ def training(
         epochs: int = 10,
         mutationRate: float = 0.02,
         toSurvive: int = 20,
+        config: dict = None,
 ):
+
+    if (config):
+        players = config['player_num']
+        toSurvive = config['survivor_num']
+        epochs = config['epoch_num']
+        mutationRate = config['mutation_rate']
 
     evolution = Evolution(
         mutationRate=mutationRate,
@@ -27,6 +34,9 @@ def training(
 
         [-- training begin --]
         ''' % (players, epochs, mutationRate, toSurvive))
+
+    # initialize our starting players:
+    game.generatePlayers(players)
 
     for n in range(epochs):
 

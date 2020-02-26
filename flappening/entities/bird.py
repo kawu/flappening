@@ -1,6 +1,6 @@
-from flappening.entities import Particle
+import pygame
 
-from config import bird
+from flappening.entities import Particle
 
 
 class Bird(Particle):
@@ -9,24 +9,25 @@ class Bird(Particle):
     #
     #  -------- Init -----------
     #
-    def __init__(
-            self,
-            velocity: float = bird['startVelocity'],
-            maxVelocity: float = bird['maxVelocity'],
-            lift: float = bird['lift'],
-    ):
+    def __init__(self, config: dict):
 
-        super().__init__(
-            size=bird['size'],
-            position=bird['startPosition'],
-            color=bird['color'],
-        )
+        # save shared config
+        self.config = config['game']['bird']
 
         # deepcopying the inputs:
-        self.startVelocity = float(velocity)
-        self.velocity = float(velocity)
-        self.maxVelocity = float(maxVelocity)
-        self.lift = float(lift)
+        self.startVelocity = float(self.config['startVelocity'])
+        self.velocity = float(self.config['startVelocity'])
+        self.maxVelocity = float(self.config['maxVelocity'])
+
+        self.lift = float(self.config['lift'])
+        self.attraction = float(self.config['attraction'])
+
+        # call particle constructor
+        super().__init__(
+            size=self.config['size'],
+            position=self.config['startPosition'],
+            color=pygame.Color('RED'),
+        )
 
     #
     #
@@ -45,4 +46,4 @@ class Bird(Particle):
 
             # increase fall rate
             if (self.velocity < self.maxVelocity):
-                self.velocity *= bird['attraction']
+                self.velocity *= self.attraction

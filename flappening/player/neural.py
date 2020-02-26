@@ -11,8 +11,8 @@ class Neural(Machine):
     #
     #  -------- Init -----------
     #
-    def __init__(self, brain=None):
-        super().__init__()
+    def __init__(self, config, brain=None):
+        super().__init__(config)
 
         # use given brain
         if (brain):
@@ -53,4 +53,4 @@ class Neural(Machine):
     #  -------- copy -----------
     #
     def copy(self):
-        return Neural(copy.deepcopy(self.brain))
+        return Neural(self.config, brain=copy.deepcopy(self.brain))

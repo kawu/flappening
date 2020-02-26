@@ -1,8 +1,7 @@
 import random
+import pygame
 
 from flappening.entities import Particle
-
-from config import tubes, game
 
 
 class Tubes():
@@ -11,34 +10,34 @@ class Tubes():
     #
     #  -------- Init -----------
     #
-    def __init__(
-            self,
-            width: int = tubes['width'],
-            padding: int = tubes['padding'],
-            gap: int = tubes['gap'],
-            speed: float = tubes['speed'],
-    ):
-
+    def __init__(self, config: dict):
         super().__init__()
 
-        self.width: int = width
-        self.padding: int = padding
-        self.gap: int = gap
-        self.speed: float = speed
+        # save shared config
+        self.config = config['game']['tubes']
+        self.config_game = config['game']
+
+        self.width: int = self.config['width']
+        self.padding: int = self.config['padding']
+        self.gap: int = self.config['gap']
+        self.speed: float = self.config['speed']
 
         self.yCenter: float = self.rndYCenter()
-        self.xCenter: float = game['size'][0]
+        self.xCenter: float = self.config_game['size'][0]
 
         self.upper = Particle(
             position=[self.xCenter, 0],
             size=[self.width, self.yCenter - self.gap / 2],
-            color=tubes['color'],
+            color=pygame.Color('BLUE'),
         )
 
         self.lower = Particle(
             position=[self.xCenter, self.yCenter + self.gap / 2],
-            size=[self.width, game['size'][1] - self.yCenter + self.gap / 2],
-            color=tubes['color'],
+            size=[
+                self.width,
+                self.config_game['size'][1] - self.yCenter + self.gap / 2
+            ],
+            color=pygame.Color('BLUE'),
         )
 
     #
@@ -84,7 +83,7 @@ class Tubes():
     def rndYCenter(self) -> float:
 
         minY: int = self.padding + self.gap / 2
-        maxY: int = game['size'][1] - self.padding - self.gap / 2
+        maxY: int = self.config_game['size'][1] - self.padding - self.gap / 2
 
         # random.randint(min[px], max[px])
         # src: https://docs.python.org/2/library/random.html#random.randint

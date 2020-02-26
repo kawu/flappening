@@ -4,8 +4,6 @@ from flappening.game import Statistics
 from flappening.player import Human, Neural
 from flappening.entities import Tubes
 
-from config import game
-
 
 class Game:
 
@@ -13,19 +11,10 @@ class Game:
     #
     #  -------- Init -----------
     #
-    def __init__(
-            self,
-            gameMode: int = 0,
-            playerCount: int = 1,
-    ):
+    def __init__(self, config: dict):
         super().__init__()
 
-        # 0 : human player
-        # 1 : evolving population of neural players
-        # 2 : single loaded neural player (TODO)
-        self.gameMode = gameMode
-
-        self.playerCount = playerCount
+        self.config = config
 
         # keep track of game iterations
         self.iteration: int = 0
@@ -42,16 +31,16 @@ class Game:
         pygame.init()
 
         # initiate & save screen
-        self.screen = pygame.display.set_mode(game['size'])
+        self.screen = pygame.display.set_mode(self.config['game']['size'])
 
         # add screen title
-        pygame.display.set_caption(game['title'])
+        pygame.display.set_caption(self.config['meta']['title'])
 
         # initiate & save game clock
         self.clock = pygame.time.Clock()
 
         # initiate & save Statistics
-        self.statistics = Statistics(gameMode=self.gameMode)
+        self.statistics = Statistics()
 
         # reset game
         self.reset()
@@ -62,28 +51,15 @@ class Game:
     #
     def reset(self):
 
-        #
         # --- Initiate & Save player(s)
-
-        # human
-        if (self.gameMode == 0):
-            self.players: list = [Human()]
-
-        # neural population
-        elif (self.gameMode == 1):
-
-            self.players: list = [Neural() for i in range(self.playerCount)]
-
-        # neural single
-        elif (self.gameMode == 2):
-            self.players: list = [Neural()]
+        self.players: list = [[Human(self.config)]]
 
         # players garbage
         self.playersGarbage: list = []
 
         #
         # --- Initiate & Save Tubes'/obstacles
-        self.tubes: list = [Tubes()]
+        self.tubes: list = [Tubes(self.config)]
 
         # raise game iteration count
         self.iteration += 1
@@ -146,7 +122,8 @@ class Game:
             # check tubes collide with Player(s)
             for player in self.players:
                 if (tubes.collision(player.bird) or not player.bird.inBound()
-                        or player.getScore() >= game['maxScore']):
+                        or
+                        player.getScore() >= self.config['game']['max_score']):
 
                     self.players.remove(player)
                     self.playersGarbage.append(player)
@@ -156,10 +133,11 @@ class Game:
                 self.tubes.remove(tubes)
 
         # --- Add new tubes if necessary
-        tubleWallDistance = game['size'][1] - self.tubes[-1].getXCenter()
+        tubleWallDistance = self.config['game']['size'][1] - self.tubes[
+            -1].getXCenter()
 
-        if (tubleWallDistance > game['tubeGap']):
-            self.tubes.append(Tubes())
+        if (tubleWallDistance > self.config['game']['tube_distance']):
+            self.tubes.append(Tubes(self.config))
 
         # --- Update Statistics
         self.statistics.update(
@@ -174,7 +152,7 @@ class Game:
     #
     def updateScreen(self):
         # --- Screen-clearing
-        self.screen.fill(game['color'])
+        self.screen.fill(pygame.Color('WHITE'))
 
         # --- Draw tubes'
         for tubes in self.tubes:
@@ -191,7 +169,12 @@ class Game:
         pygame.display.flip()
 
         # --- Update clock with game fps
-        self.clock.tick(game['fps'])
+        self.clock.tick(self.config['game']['fps'])
+
+    # -------- generatePlayers -----------
+    #
+    def generatePlayers(self, n: int):
+        self.players = [Neural(self.config) for i in range(n)]
 
     # -------- loadPlayers -----------
     #
