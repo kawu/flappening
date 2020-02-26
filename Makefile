@@ -16,11 +16,11 @@ run:
 
 test:
 	@echo "\n${BLUE}Running PyTest against source and test files...${NC}\n"
-	@pytest
+	@python3 -m pytest -s
 
 lint:
 	@echo "\n${BLUE}Running Flake8 against source and test files...${NC}\n"
 	@flake8
 
 clean:
-	rm -rf logs cache
+	rm -rf logs cache .pytest-cache

@@ -1,3 +1,4 @@
 pygame
 pytorch
 typing
+pytest
