@@ -1,6 +1,7 @@
 import torch
 import random
 
+import json
 import argparse
 
 from flappening import Game
@@ -68,13 +69,17 @@ parser.add_argument(
 
 # run iff file is main
 if __name__ == '__main__':
+
+    # load JSON config
+    with open("config.json") as json_file:
+        config = json.load(json_file)
+
+    # collect terminal parameters
     args = parser.parse_args()
 
-    # initialize game with console parameters
-    game = Game(
-        gameMode=args.gameMode,
-        playerCount=1 if args.gameMode == 0 else args.playerCount,
-    )
+    # FIMXE:
+    # initialize game with console parameters and config file
+    game = Game(config=config)
 
     # run game for human
     if (args.gameMode == 0):
@@ -92,4 +97,5 @@ if __name__ == '__main__':
             epochs=args.trainEpochs,
             mutationRate=args.mutationRate,
             toSurvive=args.toSurvive,
+            config=config['training'],
         )
