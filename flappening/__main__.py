@@ -1,8 +1,19 @@
+import torch
+import random
+
 import argparse
 
 from flappening import Game
 from flappening.neural import training
 
+# ensure that each run is somewhat identically
+torch.manual_seed(42)
+random.seed(42)
+
+#
+#
+#  -------- ARGPARSER -----------
+#
 parser = argparse.ArgumentParser(description='play or train flappening')
 
 # argument: gameMode

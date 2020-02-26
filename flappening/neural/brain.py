@@ -1,9 +1,6 @@
 import torch
 import torch.nn as nn
 
-# ensure brains are created identically every run
-torch.manual_seed(42)
-
 
 class Brain(nn.Module):
 
@@ -56,3 +53,13 @@ class Brain(nn.Module):
                 return True
 
             return False
+
+    #  -------- save -----------
+    #
+    def save(self, path: str):
+        torch.save(self.state_dict(), path)
+
+    #  -------- load -----------
+    #
+    def load(self, path: str):
+        self.load_state_dict(torch.load(path), strict=False)
