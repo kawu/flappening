@@ -1,0 +1,43 @@
+{
+    "meta": {
+        "title": "flappening",
+        "version": "0.4.0",
+        "description": "lorem ipsum",
+        "url": "https://github.com/smnmnkr/flappening"
+    },
+    "training": {
+        "player_num": 500,
+        "survivor_num": 40,
+        "epoch_num": 10,
+        "mutation_rate": 0.02
+    },
+    "game": {
+        "fps": 60,
+        "max_score": 500,
+        "tube_distance": 100,
+        "size": [
+            700,
+            500
+        ],
+        "bird": {
+            "size": [
+                30,
+                30
+            ],
+            "startPosition": [
+                120,
+                160
+            ],
+            "startVelocity": 2.50,
+            "maxVelocity": 20.0,
+            "lift": 25.0,
+            "attraction": 1.25
+        },
+        "tubes": {
+            "width": 50,
+            "padding": 20,
+            "gap": 120,
+            "speed": 10
+        }
+    }
+}
