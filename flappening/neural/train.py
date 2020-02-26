@@ -1,8 +1,10 @@
-from flappening.neural.evolution import Evolution
-
+from flappening.neural import Evolution
 from flappening.utils import avgScore
 
 
+#
+#  -------- training -----------
+#
 def training(
         game,
         players: int = 200,

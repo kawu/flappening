@@ -2,9 +2,6 @@ import random
 
 from flappening.utils import avgScore
 
-# ensure mutation is identically every run
-random.seed(42)
-
 
 class Evolution():
 
