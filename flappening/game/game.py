@@ -52,7 +52,7 @@ class Game:
     def reset(self):
 
         # --- Initiate & Save player(s)
-        self.players: list = [[Human(self.config)]]
+        self.players: list = [Human(self.config)]
 
         # players garbage
         self.playersGarbage: list = []
