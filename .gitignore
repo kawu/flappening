@@ -9,5 +9,6 @@ __pycache__/
 # osx cache file
 **/.DS_Store
 
-# logs
+# logs, results testing
 **/logs
+**/results/tests
