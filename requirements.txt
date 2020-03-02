@@ -1,4 +1,6 @@
 pygame
 pytorch
-typing
 pytest
+numpy
+pandas
+matplotlib
