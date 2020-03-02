@@ -1,7 +1,9 @@
+from abc import ABC, abstractmethod
+
 from flappening.entities import Bird
 
 
-class Player():
+class Player(ABC):
 
     #
     #
@@ -28,15 +30,31 @@ class Player():
         self.bird.move(flapped=flapped)
         self.score += 1
 
+    #
+    #
     #  -------- interact -----------
-    #  --- ABSTRACT METHOD
+    #
+    @abstractmethod
     def interact(self, event=None):
         return NotImplementedError
 
+    #
+    #
     #  -------- draw -----------
+    #
     def draw(self):
         self.bird.draw()
 
+    #
+    #
     #  -------- getScore -----------
+    #
     def getScore(self):
         return self.score
+
+    #
+    #
+    #  -------- getFitness -----------
+    #
+    def getFitness(self):
+        return self.score / self.config['game']['max_score']
