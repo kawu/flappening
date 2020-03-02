@@ -3,17 +3,21 @@
         "title": "flappening",
         "version": "0.4.0",
         "description": "lorem ipsum",
+        "author": "smnmnkr",
         "url": "https://github.com/smnmnkr/flappening"
     },
     "training": {
-        "player_num": 500,
+        "player_num": 400,
         "survivor_num": 40,
-        "epoch_num": 10,
-        "mutation_rate": 0.02
+        "epoch_num": 25,
+        "mutation_rate": 0.02,
+        "utils": {
+            "output_dir": "./results/test/"
+        }
     },
     "game": {
         "fps": 60,
-        "max_score": 500,
+        "max_score": 750,
         "tube_distance": 100,
         "size": [
             700,
