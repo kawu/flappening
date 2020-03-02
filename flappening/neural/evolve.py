@@ -12,12 +12,14 @@ class Evolution():
     def __init__(
             self,
             mutationRate: float = 0.02,
+            fitnessBias: float = 1.10,
             toSurvive: int = 20,
     ):
 
         super().__init__()
 
         self.mutationRate = mutationRate
+        self.fitnessBias = fitnessBias
         self.toSurvive = toSurvive
 
         self.bestPlayerHistory: list = []
@@ -33,9 +35,13 @@ class Evolution():
         # elitism selection
         playerSelection: list = self.selectElite(players, self.toSurvive)
 
+        # get best player selection in history
+        bestHistorySelection: list = max(self.bestPlayerHistory,
+                                         key=lambda x: avgScore(x))
+
         # use elite players from last generation if they perform better
-        if (avgScore(playerSelection) <= avgScore(self.bestPlayerHistory[-1])):
-            playerSelection = self.bestPlayerHistory[-1]
+        if (avgScore(playerSelection) <= avgScore(bestHistorySelection)):
+            playerSelection = bestHistorySelection
 
         # generate new players
         for i in range(len(players)):
@@ -55,6 +61,12 @@ class Evolution():
     #
     def mutate(self, player):
 
+        #  -------- mutate_param -----------
+        #
+        def mutate_num(param):
+            return param + self.mutationRate * random.randint(
+                -1, 1) * (self.fitnessBias - player.getFitness())
+
         newPlayer = player.copy()
 
         for param in player.brain.parameters():
@@ -63,13 +75,12 @@ class Evolution():
             if (len(param.shape) == 2):
                 for i0 in range(param.shape[0]):
                     for i1 in range(param.shape[1]):
-                        param[i0][i1] += self.mutationRate * random.randint(
-                            -1, 1)
+                        param[i0][i1] = mutate_num(param[i0][i1])
 
             # mutate biases of linear layer
             if (len(param.shape) == 1):
                 for i0 in range(param.shape[0]):
-                    param[i0] += self.mutationRate * random.randint(-1, 1)
+                    param[i0] = mutate_num(param[i0])
 
         return newPlayer
 
