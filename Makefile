@@ -12,7 +12,7 @@ mutationRate=0.02
 toSurvive=20
 
 run:
-	@python -m $(MODULE) $(gameMode) $(playerCount) $(trainEpochs) $(mutationRate) $(toSurvive) >> ./results/test/Log.tmp.txt
+	@python3 -m $(MODULE) $(gameMode) $(playerCount) $(trainEpochs) $(mutationRate) $(toSurvive) >> ./results/test/Log.tmp.txt
 
 test:
 	@echo "\n${BLUE}Running PyTest against source and test files...${NC}\n"
