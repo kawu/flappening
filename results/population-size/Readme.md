@@ -8,6 +8,8 @@ Full results can be found in `Log.[1-3].txt`.
 ### Summary 
 Average of three iteration. Marked in bold are results better that are the best in each generation.
 
+**Legend:** gen = generation, pop = population
+
 #### Average Player
 
 | gen/pop |  20  |  40  |  60  |  80  |  100  |  120  |
