@@ -8,8 +8,8 @@ from flappening import Game
 from flappening.neural import training
 
 # ensure that each run is somewhat identically
-torch.manual_seed(42)
-random.seed(42)
+torch.manual_seed(1)
+random.seed(1)
 
 #
 #
