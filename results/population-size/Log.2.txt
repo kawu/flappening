@@ -1,0 +1,168 @@
+pygame 1.9.6
+Hello from the pygame community. https://www.pygame.org/contribute.html
+game mode 1: machine training/evolution
+
+        [-- begin training: 2020-05-05 10:13:06.669969 --]
+    
+
+        [-- training configuration --]
+         -- players: 20
+         -- epochs: 10
+         -- mutation rate: 0.020000
+         -- to surive: 20
+
+        [-- training begin --]
+        
+[Gen:   1] 	 avg:   16 	 best:   57
+[Gen:   2] 	 avg:   15 	 best:   38
+[Gen:   3] 	 avg:   19 	 best:   88
+[Gen:   4] 	 avg:   19 	 best:   41
+[Gen:   5] 	 avg:   16 	 best:   56
+[Gen:   6] 	 avg:   16 	 best:   30
+[Gen:   7] 	 avg:   20 	 best:   56
+[Gen:   8] 	 avg:   16 	 best:   57
+[Gen:   9] 	 avg:   20 	 best:   57
+[Gen:  10] 	 avg:   13 	 best:   24
+
+        [-- finished training: 2020-05-05 10:13:10.132404 --]
+    
+pygame 1.9.6
+Hello from the pygame community. https://www.pygame.org/contribute.html
+game mode 1: machine training/evolution
+
+        [-- begin training: 2020-05-05 10:13:18.968173 --]
+    
+
+        [-- training configuration --]
+         -- players: 40
+         -- epochs: 10
+         -- mutation rate: 0.020000
+         -- to surive: 20
+
+        [-- training begin --]
+        
+[Gen:   1] 	 avg:   17 	 best:   57
+[Gen:   2] 	 avg:   26 	 best:   57
+[Gen:   3] 	 avg:   23 	 best:   58
+[Gen:   4] 	 avg:   32 	 best:   88
+[Gen:   5] 	 avg:   34 	 best:   60
+[Gen:   6] 	 avg:   51 	 best:   61
+[Gen:   7] 	 avg:   61 	 best:   90
+[Gen:   8] 	 avg:   49 	 best:   61
+[Gen:   9] 	 avg:   62 	 best:   90
+[Gen:  10] 	 avg:   53 	 best:   61
+
+        [-- finished training: 2020-05-05 10:13:23.644724 --]
+    
+pygame 1.9.6
+Hello from the pygame community. https://www.pygame.org/contribute.html
+game mode 1: machine training/evolution
+
+        [-- begin training: 2020-05-05 10:13:32.554400 --]
+    
+
+        [-- training configuration --]
+         -- players: 60
+         -- epochs: 10
+         -- mutation rate: 0.020000
+         -- to surive: 20
+
+        [-- training begin --]
+        
+[Gen:   1] 	 avg:   17 	 best:   58
+[Gen:   2] 	 avg:   27 	 best:   57
+[Gen:   3] 	 avg:   35 	 best:   90
+[Gen:   4] 	 avg:   42 	 best:   61
+[Gen:   5] 	 avg:   55 	 best:   89
+[Gen:   6] 	 avg:   45 	 best:   88
+[Gen:   7] 	 avg:   49 	 best:   88
+[Gen:   8] 	 avg:   45 	 best:   92
+[Gen:   9] 	 avg:   55 	 best:   90
+[Gen:  10] 	 avg:   64 	 best:  122
+
+        [-- finished training: 2020-05-05 10:13:38.872065 --]
+    
+pygame 1.9.6
+Hello from the pygame community. https://www.pygame.org/contribute.html
+game mode 1: machine training/evolution
+
+        [-- begin training: 2020-05-05 10:13:47.030928 --]
+    
+
+        [-- training configuration --]
+         -- players: 80
+         -- epochs: 10
+         -- mutation rate: 0.020000
+         -- to surive: 20
+
+        [-- training begin --]
+        
+[Gen:   1] 	 avg:   17 	 best:   58
+[Gen:   2] 	 avg:   28 	 best:   59
+[Gen:   3] 	 avg:   51 	 best:   88
+[Gen:   4] 	 avg:   59 	 best:   90
+[Gen:   5] 	 avg:   56 	 best:  121
+[Gen:   6] 	 avg:   68 	 best:  119
+[Gen:   7] 	 avg:   76 	 best:   93
+[Gen:   8] 	 avg:   60 	 best:   91
+[Gen:   9] 	 avg:   68 	 best:   92
+[Gen:  10] 	 avg:   68 	 best:   92
+
+        [-- finished training: 2020-05-05 10:13:55.177624 --]
+    
+pygame 1.9.6
+Hello from the pygame community. https://www.pygame.org/contribute.html
+game mode 1: machine training/evolution
+
+        [-- begin training: 2020-05-05 10:14:04.637072 --]
+    
+
+        [-- training configuration --]
+         -- players: 100
+         -- epochs: 10
+         -- mutation rate: 0.020000
+         -- to surive: 20
+
+        [-- training begin --]
+        
+[Gen:   1] 	 avg:   18 	 best:   59
+[Gen:   2] 	 avg:   29 	 best:   59
+[Gen:   3] 	 avg:   49 	 best:   88
+[Gen:   4] 	 avg:   47 	 best:   90
+[Gen:   5] 	 avg:   62 	 best:  430
+[Gen:   6] 	 avg:   66 	 best:  750
+[Gen:   7] 	 avg:  109 	 best:  750
+[Gen:   8] 	 avg:  170 	 best:  750
+[Gen:   9] 	 avg:  323 	 best:  751
+[Gen:  10] 	 avg:  472 	 best:  751
+
+        [-- finished training: 2020-05-05 10:14:37.574727 --]
+    
+pygame 1.9.6
+Hello from the pygame community. https://www.pygame.org/contribute.html
+game mode 1: machine training/evolution
+
+        [-- begin training: 2020-05-05 10:14:47.918477 --]
+    
+
+        [-- training configuration --]
+         -- players: 120
+         -- epochs: 10
+         -- mutation rate: 0.020000
+         -- to surive: 20
+
+        [-- training begin --]
+        
+[Gen:   1] 	 avg:   18 	 best:   59
+[Gen:   2] 	 avg:   30 	 best:   88
+[Gen:   3] 	 avg:   41 	 best:  249
+[Gen:   4] 	 avg:   57 	 best:  184
+[Gen:   5] 	 avg:   92 	 best:  750
+[Gen:   6] 	 avg:  100 	 best:  751
+[Gen:   7] 	 avg:  370 	 best:  751
+[Gen:   8] 	 avg:  646 	 best:  752
+[Gen:   9] 	 avg:  624 	 best:  752
+[Gen:  10] 	 avg:  507 	 best:  752
+
+        [-- finished training: 2020-05-05 10:15:36.975036 --]
+    
