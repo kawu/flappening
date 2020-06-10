@@ -7,16 +7,16 @@
         "url": "https://github.com/smnmnkr/flappening"
     },
     "training": {
-        "player_num": 200,
+        "player_num": 120,
         "survivor_num": 20,
         "epoch_num": 10,
         "mutation_rate": 0.02,
         "utils": {
-            "output_dir": "./results/test/"
+            "output_dir": "./results/tests/"
         }
     },
     "game": {
-        "fps": 160,
+        "fps": 18,
         "max_score": 750,
         "tube_distance": 100,
         "size": [
@@ -34,7 +34,7 @@
             ],
             "startVelocity": 2.50,
             "maxVelocity": 20.0,
-            "lift": 25.0,
+            "lift": 35.0,
             "attraction": 1.25
         },
         "tubes": {
@@ -43,5 +43,5 @@
             "gap": 140,
             "speed": 10
         }
-    }
+    } 
 }
