@@ -11,8 +11,11 @@ trainEpochs=10
 mutationRate=0.02
 toSurvive=20
 
+out='./results/tests'
+
 run:
-	@python3 -m $(MODULE) $(gameMode) $(playerCount) $(trainEpochs) $(mutationRate) $(toSurvive) >> ./results/test/Log.tmp.txt
+	mkdir ${out}
+	@python3 -m $(MODULE) $(gameMode) $(playerCount) $(trainEpochs) $(mutationRate) $(toSurvive) >> ${out}/Log.tmp.txt
 
 test:
 	@echo "\n${BLUE}Running PyTest against source and test files...${NC}\n"
@@ -23,4 +26,4 @@ lint:
 	@flake8
 
 clean:
-	rm -rf logs cache .pytest_cache results/test
+	rm -rf logs cache .pytest_cache results/tests
