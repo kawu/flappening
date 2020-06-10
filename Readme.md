@@ -5,7 +5,7 @@
 Common (only install `typing` for Python <3.5)
 ```bash
 # bash, powershell:
-pip3 install pygame pytorch typing
+pip3 install pygame pytorch pytest numpy pandas matplotlib typing
 # or:
 pip3 install -r requirements.txt
 ```
