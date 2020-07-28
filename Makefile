@@ -6,7 +6,7 @@ NC='\033[0m' # No Color
 
 # default run config
 gameMode=1
-playerCount=200
+playerCount=120
 trainEpochs=10
 mutationRate=0.02
 toSurvive=20
@@ -14,7 +14,7 @@ toSurvive=20
 out='./results/tests'
 
 run:
-	mkdir ${out}
+	mkdir -p ${out}
 	@python3 -m $(MODULE) $(gameMode) $(playerCount) $(trainEpochs) $(mutationRate) $(toSurvive) >> ${out}/Log.tmp.txt
 
 test:
