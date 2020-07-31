@@ -40,10 +40,7 @@ class Neural(Machine):
         x2 = dataTubes[nTubesID][0]  # pipes.index(nTubesID) X
         x3 = dataTubes[nTubesID][1]  # pipes.index(nTubesID) Y
 
-        if (self.brain.think([x1, x2, x3])):
-            return True
-
-        return False
+        return self.brain.think([x1, x2, x3])
 
     #  -------- copy -----------
     #
