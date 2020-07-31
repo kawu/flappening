@@ -34,7 +34,7 @@ make run [gameMode=VAL] [playerCount=VAL] [trainEpochs=VAL] [mutationRate=VAL] [
 # play as a human:
 make play
 
-# evolve using the genetic algorithm
+# evolve using the genetic algorithm:
 make evolve
 
 # getting help:
