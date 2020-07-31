@@ -1,7 +1,5 @@
 import random
 
-from flappening.utils import avgScore
-
 
 class Evolution():
 
@@ -34,14 +32,6 @@ class Evolution():
 
         # elitism selection
         playerSelection: list = self.selectElite(players, self.toSurvive)
-
-        # get best player selection in history
-        bestHistorySelection: list = max(self.bestPlayerHistory,
-                                         key=lambda x: avgScore(x))
-
-        # use elite players from last generation if they perform better
-        if (avgScore(playerSelection) <= avgScore(bestHistorySelection)):
-            playerSelection = bestHistorySelection
 
         # generate new players
         for i in range(len(players)):
