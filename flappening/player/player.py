@@ -22,12 +22,10 @@ class Player(ABC):
     #
     def turn(self, event):
 
-        flapped = False
-
         # --- Handle player interaction
-        flapped = self.interact(event)
+        if (self.interact(event)):
+            self.bird.flap()
 
-        self.bird.move(flapped=flapped)
         self.score += 1
 
     #
@@ -44,6 +42,13 @@ class Player(ABC):
     #
     def draw(self):
         self.bird.draw()
+
+    #
+    #
+    #  -------- applyGravity -----------
+    #
+    def applyGravity(self):
+        self.bird.applyGravity()
 
     #
     #

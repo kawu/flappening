@@ -31,19 +31,23 @@ class Bird(Particle):
 
     #
     #
-    #  -------- Move -----------
+    #  -------- flap -----------
     #
-    def move(self, flapped: bool = False) -> None:
+    def flap(self) -> None:
 
-        if flapped:
-            # lift in y position
-            self.y -= self.lift
-            self.velocity = self.startVelocity
+        # lift in y position
+        self.y -= self.lift
+        self.velocity = self.startVelocity
 
-        else:
-            # drop in y position
-            self.y += self.velocity
+    #
+    #
+    #  -------- applyGravity -----------
+    #
+    def applyGravity(self) -> None:
 
-            # increase fall rate
-            if (self.velocity < self.maxVelocity):
-                self.velocity *= self.attraction
+        # drop in y position
+        self.y += self.velocity
+
+        # increase fall rate
+        if (self.velocity < self.maxVelocity):
+            self.velocity *= self.attraction
