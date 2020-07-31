@@ -1,5 +1,4 @@
 import copy
-import pygame
 
 from flappening.player import Machine
 from flappening.neural import Brain
@@ -27,10 +26,6 @@ class Neural(Machine):
     #  -------- Interact -----------
     #
     def interact(self, event=None) -> bool:
-
-        # only interact on syntetic machine event
-        if (event.type != pygame.USEREVENT):
-            return
 
         dataBird = self.getInBirdPosition()
         dataTubes = self.getInTubesPosition()
