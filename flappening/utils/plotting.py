@@ -6,6 +6,8 @@ import matplotlib.pyplot as plt
 def plotHistory(history, config):
 
     df = pd.DataFrame(history)
+    df.to_json(path_or_buf=config["utils"]["output_dir"] + "data.json",
+               orient="split")
 
     # gca stands for 'get current axis'
     ax = plt.gca()
@@ -27,4 +29,4 @@ def plotHistory(history, config):
     )
 
     plt.legend()
-    plt.savefig(config["utils"]["output_dir"] + "history.png")
+    plt.savefig(config["utils"]["output_dir"] + "plot.png")
