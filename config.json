@@ -16,7 +16,7 @@
     }
   },
   "game": {
-    "fps": 600,
+    "fps": 18,
     "max_score": 750,
     "tube_distance": 100,
     "size": [700, 500],
