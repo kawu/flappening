@@ -1,11 +1,13 @@
 ## Description
 
-This file contains the results of zwo population size experiments in which the genetic algorithm uses values between 20-120/40-280 for this hyperparameter.
-The experiment was performed on an Ubuntu Linux operating system with 160/600 frames per second in-game speed.
+This file contains the results of a population size experiment in which the genetic algorithm using values between 20-120 for this hyperparameter.
+The experiment was performed on an Ubuntu Linux operating system with 160 frames per second in-game speed.
 
-Full results can be found in `Log.[1-3].txt` (Exp. 1) and `Log.4.txt` (Exp. 2).
+## Results
 
-## Summary (Exp. 1)
+Full results can be found in `Log.[1-3].txt`.
+
+### Summary
 
 Average of three iteration. Marked in bold are results better that are the best in each generation.
 
