@@ -1,85 +1,38 @@
-[-- begin training: 2020-07-31 11:16:18.657350 --]
+pygame 2.0.0.dev6 (SDL 2.0.10, python 3.7.4)
+Hello from the pygame community. https://www.pygame.org/contribute.html
+game mode 1: machine training/evolution
 
-[-- training configuration --]
-        -- players: 200
-        -- epochs: 15
-        -- mutation rate: 0.200000
-        -- to surive: 10
+        [-- begin training: 2020-07-31 12:18:53.709031 --]
+    
 
-[-- training begin --]
+        [-- training configuration --]
+         -- players: 200
+         -- epochs: 20
+         -- mutation rate: 0.020000
+         -- to surive: 10
 
+        [-- training begin --]
+        
 [Gen:   1] 	 avg:   16 	 best:   91
-[Gen:   2] 	 avg:   24 	 best:  218
-[Gen:   3] 	 avg:   22 	 best:  124
-[Gen:   4] 	 avg:   32 	 best:  156
-[Gen:   5] 	 avg:   29 	 best:   88
-[Gen:   6] 	 avg:   34 	 best:  150
-[Gen:   7] 	 avg:   32 	 best:  122
-[Gen:   8] 	 avg:   25 	 best:  311
-[Gen:   9] 	 avg:   47 	 best:  463
-[Gen:  10] 	 avg:   34 	 best:  151
-[Gen:  11] 	 avg:   47 	 best:  750
-[Gen:  12] 	 avg:  112 	 best:  752
-[Gen:  13] 	 avg:  215 	 best:  753
-[Gen:  14] 	 avg:  284 	 best:  754
-[Gen:  15] 	 avg:  325 	 best:  755
+[Gen:   2] 	 avg:   58 	 best:  184
+[Gen:   3] 	 avg:   75 	 best:  245
+[Gen:   4] 	 avg:   85 	 best:  248
+[Gen:   5] 	 avg:   76 	 best:  212
+[Gen:   6] 	 avg:   75 	 best:  156
+[Gen:   7] 	 avg:   82 	 best:  750
+[Gen:   8] 	 avg:  106 	 best:  753
+[Gen:   9] 	 avg:  483 	 best:  754
+[Gen:  10] 	 avg:   24 	 best:  559
+[Gen:  11] 	 avg:   96 	 best:  750
+[Gen:  12] 	 avg:   23 	 best:   61
+[Gen:  13] 	 avg:   41 	 best:  187
+[Gen:  14] 	 avg:   89 	 best:  528
+[Gen:  15] 	 avg:  144 	 best:  753
+[Gen:  16] 	 avg:  193 	 best:  754
+[Gen:  17] 	 avg:  392 	 best:  756
+[Gen:  18] 	 avg:  423 	 best:  756
+[Gen:  19] 	 avg:  548 	 best:  756
+[Gen:  20] 	 avg:  620 	 best:  756
 
-[-- finished training: 2020-07-31 11:21:42.860797 --]
-
-[-- begin training: 2020-07-31 11:22:39.563404 --]
-
-[-- training configuration --]
-        -- players: 200
-        -- epochs: 15
-        -- mutation rate: 0.200000
-        -- to surive: 10
-
-[-- training begin --]
-
-[Gen:   1] 	 avg:   16 	 best:   91
-[Gen:   2] 	 avg:   24 	 best:  218
-[Gen:   3] 	 avg:   22 	 best:  124
-[Gen:   4] 	 avg:   32 	 best:  156
-[Gen:   5] 	 avg:   29 	 best:   88
-[Gen:   6] 	 avg:   34 	 best:  150
-[Gen:   7] 	 avg:   32 	 best:  122
-[Gen:   8] 	 avg:   25 	 best:  311
-[Gen:   9] 	 avg:   47 	 best:  463
-[Gen:  10] 	 avg:   34 	 best:  151
-[Gen:  11] 	 avg:   47 	 best:  750
-[Gen:  12] 	 avg:  112 	 best:  752
-[Gen:  13] 	 avg:  215 	 best:  753
-[Gen:  14] 	 avg:  284 	 best:  754
-[Gen:  15] 	 avg:  325 	 best:  755
-
-[-- finished training: 2020-07-31 11:24:09.462787 --]
-
-[-- begin training: 2020-07-31 11:31:43.456386 --]
-
-
-[-- training configuration --]
-        -- players: 200
-        -- epochs: 15
-        -- mutation rate: 0.200000
-        -- to surive: 10
-
-[-- training begin --]
-
-[Gen:   1] 	 avg:   16 	 best:   91
-[Gen:   2] 	 avg:   24 	 best:  218
-[Gen:   3] 	 avg:   22 	 best:  124
-[Gen:   4] 	 avg:   32 	 best:  156
-[Gen:   5] 	 avg:   29 	 best:   88
-[Gen:   6] 	 avg:   34 	 best:  150
-[Gen:   7] 	 avg:   32 	 best:  122
-[Gen:   8] 	 avg:   25 	 best:  311
-[Gen:   9] 	 avg:   47 	 best:  463
-[Gen:  10] 	 avg:   34 	 best:  151
-[Gen:  11] 	 avg:   47 	 best:  750
-[Gen:  12] 	 avg:  112 	 best:  752
-[Gen:  13] 	 avg:  215 	 best:  753
-[Gen:  14] 	 avg:  284 	 best:  754
-[Gen:  15] 	 avg:  325 	 best:  755
-
-[-- finished training: 2020-07-31 11:32:21.934899 --]
-
+        [-- finished training: 2020-07-31 12:28:27.913700 --]
+    
