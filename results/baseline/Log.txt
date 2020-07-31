@@ -53,3 +53,33 @@
 [Gen:  15] 	 avg:  325 	 best:  755
 
 [-- finished training: 2020-07-31 11:24:09.462787 --]
+
+[-- begin training: 2020-07-31 11:31:43.456386 --]
+
+
+[-- training configuration --]
+        -- players: 200
+        -- epochs: 15
+        -- mutation rate: 0.200000
+        -- to surive: 10
+
+[-- training begin --]
+
+[Gen:   1] 	 avg:   16 	 best:   91
+[Gen:   2] 	 avg:   24 	 best:  218
+[Gen:   3] 	 avg:   22 	 best:  124
+[Gen:   4] 	 avg:   32 	 best:  156
+[Gen:   5] 	 avg:   29 	 best:   88
+[Gen:   6] 	 avg:   34 	 best:  150
+[Gen:   7] 	 avg:   32 	 best:  122
+[Gen:   8] 	 avg:   25 	 best:  311
+[Gen:   9] 	 avg:   47 	 best:  463
+[Gen:  10] 	 avg:   34 	 best:  151
+[Gen:  11] 	 avg:   47 	 best:  750
+[Gen:  12] 	 avg:  112 	 best:  752
+[Gen:  13] 	 avg:  215 	 best:  753
+[Gen:  14] 	 avg:  284 	 best:  754
+[Gen:  15] 	 avg:  325 	 best:  755
+
+[-- finished training: 2020-07-31 11:32:21.934899 --]
+
