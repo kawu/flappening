@@ -17,6 +17,13 @@ run:
 	mkdir -p ${out}
 	@python3 -m $(MODULE) $(gameMode) $(playerCount) $(trainEpochs) $(mutationRate) $(toSurvive) >> ${out}/Log.tmp.txt
 
+play:
+	@python3 -m $(MODULE) 0
+
+evolve:
+	mkdir -p ${out}
+	@python3 -m $(MODULE) $(gameMode) $(playerCount) $(trainEpochs) $(mutationRate) $(toSurvive) >> ${out}/Log.tmp.txt
+
 test:
 	@echo "\n${BLUE}Running PyTest against source and test files...${NC}\n"
 	@python3 -m pytest -s
