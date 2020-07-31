@@ -1,8 +1,5 @@
 import pygame
 
-# create default boundary object
-BOUND = pygame.Rect((0, 0), (700, 500))
-
 
 # default particle class (rect):
 class Particle(pygame.Rect):
@@ -22,6 +19,7 @@ class Particle(pygame.Rect):
 
         # get corresponding screen object
         self.screen = pygame.display.get_surface()
+        self.bound = pygame.Rect((0, 0), self.screen.get_size())
 
         # save color
         self.color = color
@@ -32,7 +30,7 @@ class Particle(pygame.Rect):
 
         # Rect.contains(Rect)
         # https://www.pygame.org/docs/ref/rect.html#pygame.Rect.contains
-        if (BOUND.contains(self)):
+        if (self.bound.contains(self)):
             return True
 
         return False
@@ -52,7 +50,7 @@ class Particle(pygame.Rect):
     #
     def visible(self) -> bool:
 
-        if (self.collision(BOUND)):
+        if (self.collision(self.bound)):
             return True
 
         return False
