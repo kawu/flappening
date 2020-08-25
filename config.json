@@ -1,47 +1,38 @@
 {
-    "meta": {
-        "title": "flappening",
-        "version": "0.4.0",
-        "description": "lorem ipsum",
-        "author": "smnmnkr",
-        "url": "https://github.com/smnmnkr/flappening"
+  "meta": {
+    "title": "flappening",
+    "version": "0.4.0",
+    "description": "lorem ipsum",
+    "author": "smnmnkr",
+    "url": "https://github.com/smnmnkr/flappening"
+  },
+  "training": {
+    "player_num": 200,
+    "survivor_num": 10,
+    "epoch_num": 20,
+    "mutation_rate": 0.02,
+    "utils": {
+      "output_dir": "./results/tests/"
+    }
+  },
+  "game": {
+    "fps": 18,
+    "max_score": 750,
+    "tube_distance": 100,
+    "size": [700, 500],
+    "bird": {
+      "size": [30, 30],
+      "startPosition": [120, 160],
+      "startVelocity": 2.5,
+      "maxVelocity": 20.0,
+      "lift": 45.0,
+      "attraction": 1.25
     },
-    "training": {
-        "player_num": 120,
-        "survivor_num": 20,
-        "epoch_num": 10,
-        "mutation_rate": 0.02,
-        "utils": {
-            "output_dir": "./results/tests/"
-        }
-    },
-    "game": {
-        "fps": 18,
-        "max_score": 750,
-        "tube_distance": 100,
-        "size": [
-            700,
-            500
-        ],
-        "bird": {
-            "size": [
-                30,
-                30
-            ],
-            "startPosition": [
-                120,
-                160
-            ],
-            "startVelocity": 2.50,
-            "maxVelocity": 20.0,
-            "lift": 35.0,
-            "attraction": 1.25
-        },
-        "tubes": {
-            "width": 50,
-            "padding": 20,
-            "gap": 140,
-            "speed": 10
-        }
-    } 
+    "tubes": {
+      "width": 50,
+      "padding": 20,
+      "gap": 140,
+      "speed": 10
+    }
+  }
 }

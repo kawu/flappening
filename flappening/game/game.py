@@ -74,19 +74,28 @@ class Game:
 
         while gameOn:
 
-            if (len(self.players) == 0):
-                gameOn = False
-
-            # --- Create & Post syntetic user event (for fair machine interaction)
-            event = pygame.event.Event(pygame.USEREVENT)
-            pygame.event.post(event)
-
             # --- Main event loop
             for event in pygame.event.get():
-                self.handleUserInteraction(event)
+
+                # --- handle window close
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    exit()
+
+                # --- Handle User interaction
+                if isinstance(self.players[0], Human):
+                    self.handleUserInteraction(event)
+
+            # --- Handle Network interaction
+            if isinstance(self.players[0], Neural):
+                self.handleNetworkInteraction()
 
             self.handleInGameInteraction()
             self.updateScreen()
+
+            # --- End game if no active players exists
+            if (len(self.players) == 0):
+                gameOn = False
 
     #
     #
@@ -94,20 +103,22 @@ class Game:
     #
     def handleUserInteraction(self, event):
 
-        # --- handle window close
-        if event.type == pygame.QUIT:
-            pygame.quit()
-            exit()
+        # --- Player(s) turn(s)
+        for player in self.players:
+            player.turn(event)
+
+    #
+    #
+    # -------- handleUserInteraction -----------
+    #
+    def handleNetworkInteraction(self):
 
         # --- Player(s) turn(s)
         for player in self.players:
 
-            # machine observes game, only syntetic user event
-            if (player.isMachine() and pygame.USEREVENT):
-                player.observe(self.tubes)
-
-            # player takes action
-            player.turn(event)
+            # player observers and takes action
+            player.observe(self.tubes)
+            player.turn(event=None)
 
     #
     #
@@ -115,28 +126,41 @@ class Game:
     #
     def handleInGameInteraction(self):
 
-        # --- Tubes' moving
+        # --- Save vars for more readability
+        maxScore: int = self.config['game']['max_score']
+        gameWidth: int = self.config['game']['size'][1]
+        tubeDistance: int = self.config['game']['tube_distance']
+
+        # --- Apply game interaction on each player
+        for player in self.players:
+
+            # --- Apply gravity
+            player.applyGravity()
+
+            # --- Check if player is inbound and has not reached the max score
+            if (not player.bird.inBound() or player.getScore() >= maxScore):
+                self.withdrawPlayer(player)
+
+        # --- Handle each Tubes'
         for tubes in self.tubes:
+
+            # --- Tubes' moving
             tubes.move()
 
-            # check tubes collide with Player(s)
-            for player in self.players:
-                if (tubes.collision(player.bird) or not player.bird.inBound()
-                        or
-                        player.getScore() >= self.config['game']['max_score']):
-
-                    self.players.remove(player)
-                    self.playersGarbage.append(player)
-
-            # remove not visible tubes
+            # --- Remove not visible Tubes'
             if (not tubes.visible()):
                 self.tubes.remove(tubes)
 
-        # --- Add new tubes if necessary
-        tubleWallDistance = self.config['game']['size'][1] - self.tubes[
-            -1].getXCenter()
+            # --- Check Tubes' Player collision
+            for player in self.players:
+                if (tubes.collision(player.bird)):
+                    self.withdrawPlayer(player)
 
-        if (tubleWallDistance > self.config['game']['tube_distance']):
+        # --- Get game width and last tube distance
+        tubleWallDistance = gameWidth - self.tubes[-1].getXCenter()
+
+        # --- Add new Tubes if necessary
+        if (tubleWallDistance > tubeDistance):
             self.tubes.append(Tubes(self.config))
 
         # --- Update Statistics
@@ -151,6 +175,7 @@ class Game:
     # -------- updateScreen -----------
     #
     def updateScreen(self):
+
         # --- Screen-clearing
         self.screen.fill(pygame.Color('WHITE'))
 
@@ -170,6 +195,16 @@ class Game:
 
         # --- Update clock with game fps
         self.clock.tick(self.config['game']['fps'])
+
+    # -------- withdrawPlayer -----------
+    #
+    def withdrawPlayer(self, player):
+        try:
+            self.players.remove(player)
+            self.playersGarbage.append(player)
+
+        except ValueError:
+            pass  # Player is already dead and cannot be removed.
 
     # -------- generatePlayers -----------
     #
